@@ -1,10 +1,10 @@
-# Gang Beasts 0.0.3: Rebuilt Source
+# Gang Beasts 0.0.3: Decompiled into Source
 
 This is a rebuild of the code and the Unity project behind **Gang Beasts 0.0.3**, an early free pre-alpha of Gang Beasts, made in Unity 4.3.2.
 
 The game was taken apart, and its code was rewritten by hand until it matched the original. "Matched" here means something strict: when this code is compiled with the same Unity version, it produces **the same files, byte for byte**, as the ones that shipped with the game. That's checked with tools, so you don't have to take it on trust.
 
-> Gang Beasts belongs to Boneloaf. This is an unofficial fan project for learning and preservation, and it isn't connected to Boneloaf in any way.
+> WARNING: Gang Beasts belongs to Boneloaf. This is an unofficial project for learning and preservation, and it isn't connected to Boneloaf in any way.
 
 ## How far along it is
 
@@ -15,9 +15,7 @@ The game's code is split into four parts (Unity calls them *assemblies*):
 | Assembly-CSharp-firstpass | C# | ✅ Exact match |
 | Assembly-UnityScript-firstpass | UnityScript (JavaScript) | ✅ Exact match |
 | Assembly-UnityScript | UnityScript (JavaScript) | ✅ Exact match |
-| Assembly-CSharp | C# | 🟡 Works, but about 80 functions are not an exact match yet |
-
-The last part compiles and runs. It just isn't proven identical to the original yet.
+| Assembly-CSharp | C# | ✅ Exact match |
 
 ## Open the game in Unity
 
@@ -25,10 +23,6 @@ You need **Unity 4.3.2** exactly. Newer versions won't open this project properl
 
 1. Download or clone this repository.
 2. Open the folder `reconstruction/GangBeasts` in Unity 4.3.2.
-   **On Windows 10 or 11, don't pick the project from Unity's project window**, because Unity 4.3 crashes when it switches projects that way. Start Unity from a command prompt instead:
-   ```
-   "C:\path\to\Unity 4.3.2\Editor\Unity.exe" -projectPath "C:\path\to\Gang-Beasts\reconstruction\GangBeasts"
-   ```
 3. The first time, Unity imports every file. This takes a few minutes.
 4. Open a level from `Assets/Scenes` (start with `Intro` or `Menu`) and press **Play**.
 
