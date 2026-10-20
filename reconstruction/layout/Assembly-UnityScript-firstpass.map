@@ -1,0 +1,28 @@
+# Assembly-UnityScript-firstpass: Unity 4.3.2 Standard Assets (JavaScript), paths under Assets/.
+Standard Assets/Image Effects (Pro Only)/AmbientObscurance.js: AmbientObscurance
+Standard Assets/Image Effects (Pro Only)/AntialiasingAsPostEffect.js: AAMode AntialiasingAsPostEffect
+Standard Assets/Image Effects (Pro Only)/Bloom.js: Bloom
+Standard Assets/Image Effects (Pro Only)/BloomAndLensFlares.js: LensflareStyle34 TweakMode34 HDRBloomMode BloomScreenBlendMode BloomAndLensFlares
+Standard Assets/Image Effects (Pro Only)/Blur.js: Blur
+Standard Assets/Image Effects (Pro Only)/CameraMotionBlur.js: CameraMotionBlur
+Standard Assets/Image Effects (Pro Only)/ColorCorrectionCurves.js: ColorCorrectionMode ColorCorrectionCurves
+Standard Assets/Image Effects (Pro Only)/ColorCorrectionLut.js: ColorCorrectionLut
+Standard Assets/Image Effects (Pro Only)/ContrastEnhance.js: ContrastEnhance
+Standard Assets/Image Effects (Pro Only)/Crease.js: Crease
+Standard Assets/Image Effects (Pro Only)/DepthOfField34.js: Dof34QualitySetting DofResolution DofBlurriness BokehDestination DepthOfField34
+Standard Assets/Image Effects (Pro Only)/DepthOfFieldScatter.js: DepthOfFieldScatter
+Standard Assets/Image Effects (Pro Only)/EdgeDetectEffectNormals.js: EdgeDetectMode EdgeDetectEffectNormals
+Standard Assets/Image Effects (Pro Only)/FastBloom.js: FastBloom
+Standard Assets/Image Effects (Pro Only)/Fisheye.js: Fisheye
+Standard Assets/Image Effects (Pro Only)/GlobalFog.js: GlobalFog
+Standard Assets/Image Effects (Pro Only)/NoiseAndGrain.js: NoiseAndGrain
+Standard Assets/Image Effects (Pro Only)/PostEffectsBase.js: PostEffectsBase
+Standard Assets/Image Effects (Pro Only)/PostEffectsHelper.js: PostEffectsHelper
+Standard Assets/Image Effects (Pro Only)/Quads.js: Quads
+Standard Assets/Image Effects (Pro Only)/ScreenOverlay.js: ScreenOverlay
+Standard Assets/Image Effects (Pro Only)/SunShafts.js: SunShaftsResolution ShaftsScreenBlendMode SunShafts
+Standard Assets/Image Effects (Pro Only)/TiltShiftHdr.js: TiltShiftHdr
+Standard Assets/Image Effects (Pro Only)/Tonemapping.js: Tonemapping
+Standard Assets/Image Effects (Pro Only)/Triangles.js: Triangles
+Standard Assets/Image Effects (Pro Only)/Vignetting.js: Vignetting
+Standard Assets/Scripts/General Scripts/TimedObjectDestructor.js: TimedObjectDestructor

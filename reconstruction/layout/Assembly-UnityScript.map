@@ -1,0 +1,20 @@
+# Assembly-UnityScript: game JavaScript, paths under Assets/. Original folder names are not
+# recorded in the player; numbered folders reproduce the observed (ordinal path) compile order.
+Scripts JS/01 Prototype/Group.js: Group
+Scripts JS/01 Prototype/GroupContainer.js: GroupContainer
+Scripts JS/01 Prototype/Mic.js: Mic
+Scripts JS/01 Prototype/cameraController.js: cameraController
+Scripts JS/01 Prototype/jointBreakExample.js: jointBreakExample
+Scripts JS/01 Prototype/playerControllerExample.js: playerControllerExample
+Scripts JS/02 Player/Actor.js: Actor
+Scripts JS/02 Player/Grab.js: Grab
+Scripts JS/02 Player/PlayerDamageCheck.js: PlayerDamageCheck
+Scripts JS/02 Player/playerControllerExample1.js: playerControllerExample1
+Scripts JS/03 Misc/NewBehaviourScript.js: NewBehaviourScript
+Scripts JS/04 cInput Demo/Boss_js.js: Boss_js
+Scripts JS/04 cInput Demo/Enemy_js.js: Enemy_js
+Scripts JS/04 cInput Demo/Planes_js.js: Planes_js
+Scripts JS/04 cInput Demo/Restart_js.js: Restart_js
+Scripts JS/04 cInput Demo/Setup_js.js: Setup_js
+Scripts JS/04 cInput Demo/Turret_js.js: Turret_js
+Scripts JS/05 Camera/SmoothFollow.js: SmoothFollow

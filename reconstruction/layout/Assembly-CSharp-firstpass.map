@@ -1,0 +1,26 @@
+# Assembly-CSharp-firstpass: paths under Assets/. Order must reproduce the TypeDef order.
+Plugins/cInput/cGUI.cs: cGUI
+Plugins/cInput/cInput.cs: cInput
+Plugins/cInput/cInputGUI.cs: cInputGUI
+Plugins/cInput/cKeys.cs: Keys
+Standard Assets/Image Effects (Pro Only)/BlurEffect.cs: BlurEffect
+Standard Assets/Image Effects (Pro Only)/ColorCorrectionEffect.cs: ColorCorrectionEffect
+Standard Assets/Image Effects (Pro Only)/ContrastStretchEffect.cs: ContrastStretchEffect
+Standard Assets/Image Effects (Pro Only)/GlowEffect.cs: GlowEffect
+Standard Assets/Image Effects (Pro Only)/GrayscaleEffect.cs: GrayscaleEffect
+Standard Assets/Image Effects (Pro Only)/ImageEffectBase.cs: ImageEffectBase
+Standard Assets/Image Effects (Pro Only)/ImageEffects.cs: ImageEffects
+Standard Assets/Image Effects (Pro Only)/MotionBlur.cs: MotionBlur
+Standard Assets/Image Effects (Pro Only)/NoiseEffect.cs: NoiseEffect
+Standard Assets/Image Effects (Pro Only)/SSAOEffect.cs: SSAOEffect
+Standard Assets/Image Effects (Pro Only)/SepiaToneEffect.cs: SepiaToneEffect
+Standard Assets/Image Effects (Pro Only)/TwirlEffect.cs: TwirlEffect
+Standard Assets/Image Effects (Pro Only)/VortexEffect.cs: VortexEffect
+Standard Assets/Water (Pro Only)/Water.cs: Water
+Standard Assets/Water (Pro Only)/Water4/Sources/Scripts/Displace.cs: Displace
+Standard Assets/Water (Pro Only)/Water4/Sources/Scripts/GerstnerDisplace.cs: GerstnerDisplace
+Standard Assets/Water (Pro Only)/Water4/Sources/Scripts/MeshContainer.cs: MeshContainer
+Standard Assets/Water (Pro Only)/Water4/Sources/Scripts/PlanarReflection.cs: PlanarReflection
+Standard Assets/Water (Pro Only)/Water4/Sources/Scripts/SpecularLighting.cs: SpecularLighting
+Standard Assets/Water (Pro Only)/Water4/Sources/Scripts/WaterBase.cs: WaterQuality WaterBase
+Standard Assets/Water (Pro Only)/Water4/Sources/Scripts/WaterTile.cs: WaterTile

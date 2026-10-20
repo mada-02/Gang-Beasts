@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+exec python -I "$(cd "$(dirname "$0")" && pwd)/rep.py" "$@"
