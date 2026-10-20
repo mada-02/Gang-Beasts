@@ -1,33 +1,75 @@
-# Gang Beasts 0.0.3 — proven source reconstruction
+# Gang Beasts 0.0.3: Rebuilt Source
 
-Source for the four script assemblies of Gang Beasts 0.0.3 (Unity 4.3.2f1, Windows). When these sources are compiled with Unity 4.3.2's own compilers and flags, the result must match the shipped DLLs byte for byte. Only the PE `TimeDateStamp` and the module MVID may differ.
+This is a rebuild of the code and the Unity project behind **Gang Beasts 0.0.3**, an early free pre-alpha of Gang Beasts, made in Unity 4.3.2.
 
-| Assembly | Status |
-|---|---|
-| Assembly-CSharp-firstpass | byte-identical (proven) |
-| Assembly-UnityScript-firstpass | byte-identical (proven) |
-| Assembly-UnityScript | byte-identical (proven) |
-| Assembly-CSharp | builds; ~80 methods still differ in IL |
+The game was taken apart, and its code was rewritten by hand until it matched the original. "Matched" here means something strict: when this code is compiled with the same Unity version, it produces **the same files, byte for byte**, as the ones that shipped with the game. That's checked with tools, so you don't have to take it on trust.
 
-The UnityScript assemblies are real `.js` compiled with `us.exe`, not C# ports.
+> Gang Beasts belongs to Boneloaf. This is an unofficial fan project for learning and preservation, and it isn't connected to Boneloaf in any way.
 
-## Unity project
+## How far along it is
 
-`reconstruction/GangBeasts/` is a complete Unity 4.3.2 project: the game's scenes and assets (exported with AssetRipper 2.0.0) wired to the reconstructed scripts. Open it with Unity 4.3.2 via `-projectPath` (see `reconstruction/Open GangBeasts in Unity 4.3.2.bat`; Unity 4.3's Project Wizard crashes on Windows 10/11 when it switches projects), then build it with File → Build Settings.
+The game's code is split into four parts (Unity calls them *assemblies*):
 
-## Rebuilding and proving the scripts
+| Part | Language | Status |
+|---|---|---|
+| Assembly-CSharp-firstpass | C# | ✅ Exact match |
+| Assembly-UnityScript-firstpass | UnityScript (JavaScript) | ✅ Exact match |
+| Assembly-UnityScript | UnityScript (JavaScript) | ✅ Exact match |
+| Assembly-CSharp | C# | 🟡 Works, but about 80 functions are not an exact match yet |
 
-These need two folders next to `reconstruction/`, neither of which is in the repository:
+The last part compiles and runs. It just isn't proven identical to the original yet.
 
-- `gang_beasts_0_0_3_windows/`: your copy of the game.
-- `UnitySetup-4.3.2/`: Unity 4.3.2 (its Mono and compilers are used directly).
+## Open the game in Unity
 
-## Usage (Git Bash, from `reconstruction/`)
+You need **Unity 4.3.2** exactly. Newer versions won't open this project properly.
 
-```bash
-bash tools/build.sh                         # Unity-exact compile → build/out/
-bash tools/prove_all.sh                     # clean build + byte proof + IL diff → proof/SUMMARY.txt
-python -I tools/assemble_project.py <dir>   # regenerate the Unity project (needs an AssetRipper export in export/)
+1. Download or clone this repository.
+2. Open the folder `reconstruction/GangBeasts` in Unity 4.3.2.
+   **On Windows 10 or 11, don't pick the project from Unity's project window**, because Unity 4.3 crashes when it switches projects that way. Start Unity from a command prompt instead:
+   ```
+   "C:\path\to\Unity 4.3.2\Editor\Unity.exe" -projectPath "C:\path\to\Gang-Beasts\reconstruction\GangBeasts"
+   ```
+3. The first time, Unity imports every file. This takes a few minutes.
+4. Open a level from `Assets/Scenes` (start with `Intro` or `Menu`) and press **Play**.
+
+Some screen effects, like bloom and blur, need Unity **Pro** in this old version. Without Pro, the game still runs; those effects just stay off.
+
+## Build the game
+
+In Unity, go to **File → Build Settings**, pick **PC, Mac & Linux Standalone**, and click **Build**. All the levels are already in the build list, in the right order.
+
+## What's in this repository
+
+```
+reconstruction/
+  GangBeasts/   the full Unity project (levels, art, sounds and code)
+  src/          the rebuilt code, one folder per assembly
+  layout/       lists of which file each piece of code goes in
+  tools/        the scripts that build the code and check it against the original
+  proof/        reports from the checks
 ```
 
-`.gitattributes` turns off line-ending conversion so the sources stay byte-exact. See [CLAUDE.md](CLAUDE.md) for the pipeline, the tools and the compiler idioms that decide a 1:1 match.
+The code in `GangBeasts/Assets` is a copy of the code in `src/`. If you change one, change the other too.
+
+## Check the code against the original yourself
+
+This part is optional, for anyone who wants to repeat the proof. You need:
+
+- **Windows** with **Git Bash** and **Python 3**.
+- **Unity 4.3.2**, in a folder named `UnitySetup-4.3.2` next to `reconstruction/`.
+- **The original game files** (Gang Beasts 0.0.3 for Windows), in a folder named `gang_beasts_0_0_3_windows` next to `reconstruction/`. They're used as the reference.
+
+Then, from the `reconstruction` folder in Git Bash:
+
+```bash
+bash tools/build.sh        # compile the code the same way Unity 4.3.2 does
+bash tools/prove_all.sh    # compile everything from scratch and compare it with the original files
+```
+
+`prove_all.sh` writes its results to `proof/SUMMARY.txt`. **PASS** means the file came out the same as the original. The only differences allowed are a timestamp and a random ID, which change every time anything is compiled.
+
+## Good to know
+
+- Don't let Git change line endings in this repository. Even a small change like that would break the exact match. The included `.gitattributes` file already turns it off.
+- The original folder names inside the game's code couldn't be recovered, so some folders have numbered names like `01 Prototype`. That's on purpose.
+- More technical details about how everything works are in [CLAUDE.md](CLAUDE.md).

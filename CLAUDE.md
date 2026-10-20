@@ -9,7 +9,6 @@ A source reconstruction of **Gang Beasts 0.0.3** (Unity 4.3.2f1, Windows). The g
 - `gang_beasts_0_0_3_windows/` — the shipped game. **Read-only ground truth; never modify.** Work on scratch copies elsewhere. Not in git.
 - `UnitySetup-4.3.2/` — (not in git) Unity 4.3.2 editor + its Mono (`Data/Mono/bin/mono.exe`, compilers in `Data/Mono/lib/mono/unity/{smcs,us}.exe`).
 - `reconstruction/` — all work: `src/<Assembly>/` (canonical sources), `layout/` (path maps), `tools/`, `build/`, `proof/`, `export/` (AssetRipper output + `ShaderText/`), `GangBeasts/` (assembled Unity project). `build/`, `decompiled/`, `export/`, `tools/bin/` and `GangBeasts/{Library,Temp}` are generated and git-ignored; `GangBeasts/` itself (assets + scripts) is committed. Keep its scripts identical to `src/` (copy edits both ways).
-- `init.bat` puts the bundled portable Node/Git on PATH (cmd only).
 
 ## Status (keep updated)
 
@@ -27,7 +26,7 @@ tools/bin/ildiff/ildiff.exe diff "$O/<A>.dll" build/out/<A>.dll [-v]  # per-meth
 tools/bin/ildiff/ildiff.exe dist "$O/<A>.dll" build/out/<A>.dll      # per-method distance (0 = equal); sort -n for work list
 tools/cmp.sh <A> <TypeSubstring> <Method> [ctx]                     # compact IL diff of one method (the "single test")
 python -I tools/assemble_project.py <new-out-dir>                   # build the Unity project (refuses existing dir)
-"reconstruction/Open GangBeasts in Unity 4.3.2.bat"                 # open project (see gotchas)
+"../UnitySetup-4.3.2/Unity.exe" -projectPath "$(cygpath -w GangBeasts)"   # open project (see gotchas)
 ```
 
 The .NET tools (`tools/{ildiff,relayout,autofix,cs2us}`) are rebuilt with `dotnet build -c Release -o ../bin/<name>`; `ildiff` and `autofix` share `tools/ilmodel/IlModel.cs`. REA CLI: `npx -y rea-agents@6.7.0 compare-managed-members <orig> <rebuilt> --format json`.

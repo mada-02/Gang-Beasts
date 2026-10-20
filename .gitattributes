@@ -1,3 +1,2 @@
 # Sources must stay byte-exact (BOMs, LF endings) for the 1:1 proof: no EOL conversion.
 * -text
-*.bat text eol=crlf
