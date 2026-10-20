@@ -1,4 +1,6 @@
 #pragma strict
+#pragma implicit
+#pragma downcast
 
 @script ExecuteInEditMode
 @script RequireComponent (Camera)

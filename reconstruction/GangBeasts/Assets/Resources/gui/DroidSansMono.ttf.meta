@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: 8070b951b001cf74d8493aeb18c53c76
+timeCreated: 1792465861
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 2
+  name:
+  fontSize: 12
+  forceTextureCase: -2
+  characterSpacing: 1
+  characterPadding: 0
+  includeFontData: 1
+  use2xBehaviour: 0
+  fontNames:
+  - Droid Sans Mono
+  customCharacters:
+  fontRenderingMode: 0
+  output:
+    hasEmptyFontData: 0
+  userData:

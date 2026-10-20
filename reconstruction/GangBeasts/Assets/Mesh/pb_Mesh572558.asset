@@ -1,0 +1,154 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!43 &4300000
+Mesh:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: pb_Mesh572558
+  m_SubMeshes:
+  - serializedVersion: 2
+    firstByte: 0
+    indexCount: 6
+    topology: 0
+    firstVertex: 0
+    vertexCount: 4
+    localAABB:
+      m_Center: {x: 38, y: -0.75, z: 1.66893E-06}
+      m_Extent: {x: 1, y: 0.75, z: 4.529953E-06}
+  - serializedVersion: 2
+    firstByte: 12
+    indexCount: 30
+    topology: 0
+    firstVertex: 4
+    vertexCount: 20
+    localAABB:
+      m_Center: {x: 38, y: -0.75, z: -5.999998}
+      m_Extent: {x: 1, y: 0.75, z: 6.000005}
+  m_Shapes:
+    vertices: []
+    shapes: []
+    channels: []
+    fullWeights: []
+  m_BindPose: []
+  m_BoneNameHashes:
+  m_RootBoneNameHash: 0
+  m_MeshCompression: 0
+  m_StreamCompression: 0
+  m_IsReadable: 1
+  m_KeepVertices: 1
+  m_KeepIndices: 1
+  m_IndexBuffer: 000001000200010003000200040005000600050007000600080009000a0009000b000a000c000d000e000d000f000e00100011001200110013001200140015001600150017001600
+  m_Skin: []
+  m_VertexData:
+    m_CurrentChannels: 63
+    m_VertexCount: 24
+    m_Channels:
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 3
+    - stream: 0
+      offset: 12
+      format: 0
+      dimension: 3
+    - stream: 0
+      offset: 24
+      format: 2
+      dimension: 1
+    - stream: 0
+      offset: 28
+      format: 0
+      dimension: 2
+    - stream: 0
+      offset: 36
+      format: 0
+      dimension: 2
+    - stream: 0
+      offset: 44
+      format: 0
+      dimension: 4
+    m_Streams:
+    - channelMask: 63
+      offset: 0
+      stride: 60
+      dividerOp: 0
+      frequency: 0
+    - channelMask: 0
+      offset: 0
+      stride: 0
+      dividerOp: 0
+      frequency: 0
+    - channelMask: 0
+      offset: 0
+      stride: 0
+      dividerOp: 0
+      frequency: 0
+    - channelMask: 0
+      offset: 0
+      stride: 0
+      dividerOp: 0
+      frequency: 0
+    m_DataSize: 1440
+    _typelessdata: 000014420000c0bf0000d03600009836000000000000803fffffffff000000400000000010d7a33cfa99293f000080bf0000000000009836000080bf00001c420000c0bf000040b600009836000000000000803fffffffff0000000000000000960d393efa99293f000080bf0000000000009836000080bf00001442000000000000d03600009836000000000000803fffffffff000000400000c03f0bd7a33c7c75483f000080bf0000000000009836000080bf00001c4200000000000040b600009836000000000000803fffffffff000000000000c03f960d393e7c75483f000080bf0000000000009836000080bf00001c420000c0bf000040b60000803f0000000000000000ffffffff00004041000000007ad8a33c084bc33e00000000000000000000803f000080bf00001c420000c0bf030040c10000803f0000000000000000ffffffff0000000000000000ccfa7b3f084bc33e00000000000000000000803f000080bf00001c4200000000000040b60000803f0000000000000000ffffffff000040410000c03f0bd7a33c0781003f00000000000000000000803f000080bf00001c4200000000030040c10000803f0000000000000000ffffffff000000000000c03fc1fa7b3f0781003f00000000000000000000803f000080bf00001c420000c0bf030040c1000020b600000000000080bfffffffff100000400000000010d7a33c34944d3f0000803f00000000000020b6000080bf000014420000c0bffeff3fc1000020b600000000000080bfffffffff0000000000000000960d393e34944d3f0000803f00000000000020b6000080bf00001c4200000000030040c1000020b600000000000080bfffffffff100000400000c03f0bd7a33cb66f6c3f0000803f00000000000020b6000080bf0000144200000000feff3fc1000020b600000000000080bfffffffff000000000000c03f960d393eb66f6c3f0000803f00000000000020b6000080bf000014420000c0bffeff3fc1000080bf0000000000000000ffffffff04004041000000007ad8a33cbf9f053f0000000000000000000080bf000080bf000014420000c0bf0000d036000080bf0000000000000000ffffffff0000000000000000d2fa7b3fbf9f053f0000000000000000000080bf000080bf0000144200000000feff3fc1000080bf0000000000000000ffffffff040040410000c03f0bd7a33c417b243f0000000000000000000080bf000080bf00001442000000000000d036000080bf0000000000000000ffffffff000000000000c03fc6fa7b3f417b243f0000000000000000000080bf000080bf00001442000000000000d036000000000000803f00000000ffffffff0000004000000000d8fa7b3f0bd7a33c000080bf0000000000000000000080bf00001c4200000000000040b6000000000000803f00000000ffffffff0000000000001837ccfa7b3f910d393e000080bf00000000000080b4000080bf0000144200000000feff3fc1000000000000803f00000000ffffffff0000004004004041cbd7a33c48d7a33c000080bf00000000000080b4000080bf00001c4200000000030040c1000000000000803f00000000ffffffff000000000a0040410bd7a33c990d393e000080bf00000000000000b5000080bf000014420000c0bffeff3fc100000000000080bf00000000ffffffff000000400000a036ccfa7b3f7a884d3e000080bf000000005055552a000080bf00001c420000c0bf030040c100000000000080bf00000000ffffffff0000000000000000d3fa7b3f970db93e000080bf000000005055d529000080bf000014420000c0bf0000d03600000000000080bf00000000ffffffff000000400a0040410bd7a33c7b884d3e000080bf000000005055d529000080bf00001c420000c0bf000040b600000000000080bf00000000ffffffff0000000000004041a0d8a33c980db93e000080bf0000000000000000000080bf
+  m_CompressedMesh:
+    m_Vertices:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data:
+      m_BitSize: 0
+    m_UV:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data:
+      m_BitSize: 0
+    m_BindPoses:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data:
+      m_BitSize: 0
+    m_Normals:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data:
+      m_BitSize: 0
+    m_Tangents:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data:
+      m_BitSize: 0
+    m_Weights:
+      m_NumItems: 0
+      m_Data:
+      m_BitSize: 0
+    m_NormalSigns:
+      m_NumItems: 0
+      m_Data:
+      m_BitSize: 0
+    m_TangentSigns:
+      m_NumItems: 0
+      m_Data:
+      m_BitSize: 0
+    m_BoneIndices:
+      m_NumItems: 0
+      m_Data:
+      m_BitSize: 0
+    m_Triangles:
+      m_NumItems: 0
+      m_Data:
+      m_BitSize: 0
+    m_Colors:
+      m_NumItems: 0
+      m_Data:
+      m_BitSize: 0
+  m_LocalAABB:
+    m_Center: {x: 38, y: -0.75, z: -5.999998}
+    m_Extent: {x: 1, y: 0.75, z: 6.000005}
+  m_MeshUsageFlags: 0
+  m_MeshOptimized: 1

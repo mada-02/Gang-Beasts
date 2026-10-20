@@ -1,0 +1,179 @@
+using UnityEngine;
+
+[ExecuteInEditMode]
+[AddComponentMenu("Image Effects/Color Adjustments/Contrast Stretch")]
+public class ContrastStretchEffect : MonoBehaviour
+{
+	public float adaptationSpeed = 0.02f;
+
+	public float limitMinimum = 0.2f;
+
+	public float limitMaximum = 0.6f;
+
+	private RenderTexture[] adaptRenderTex = new RenderTexture[2];
+
+	private int curAdaptIndex;
+
+	public Shader shaderLum;
+
+	private Material m_materialLum;
+
+	public Shader shaderReduce;
+
+	private Material m_materialReduce;
+
+	public Shader shaderAdapt;
+
+	private Material m_materialAdapt;
+
+	public Shader shaderApply;
+
+	private Material m_materialApply;
+
+	protected Material materialLum
+	{
+		get
+		{
+			if (m_materialLum == null)
+			{
+				m_materialLum = new Material(shaderLum);
+				m_materialLum.hideFlags = HideFlags.HideAndDontSave;
+			}
+			return m_materialLum;
+		}
+	}
+
+	protected Material materialReduce
+	{
+		get
+		{
+			if (m_materialReduce == null)
+			{
+				m_materialReduce = new Material(shaderReduce);
+				m_materialReduce.hideFlags = HideFlags.HideAndDontSave;
+			}
+			return m_materialReduce;
+		}
+	}
+
+	protected Material materialAdapt
+	{
+		get
+		{
+			if (m_materialAdapt == null)
+			{
+				m_materialAdapt = new Material(shaderAdapt);
+				m_materialAdapt.hideFlags = HideFlags.HideAndDontSave;
+			}
+			return m_materialAdapt;
+		}
+	}
+
+	protected Material materialApply
+	{
+		get
+		{
+			if (m_materialApply == null)
+			{
+				m_materialApply = new Material(shaderApply);
+				m_materialApply.hideFlags = HideFlags.HideAndDontSave;
+			}
+			return m_materialApply;
+		}
+	}
+
+	private void Start()
+	{
+		if (!SystemInfo.supportsImageEffects)
+		{
+			enabled = false;
+			return;
+		}
+		if (!shaderAdapt.isSupported || !shaderApply.isSupported || !shaderLum.isSupported || !shaderReduce.isSupported)
+		{
+			enabled = false;
+			return;
+		}
+	}
+
+	private void OnEnable()
+	{
+		for (int i = 0; i < 2; i++)
+		{
+			if (!adaptRenderTex[i])
+			{
+				adaptRenderTex[i] = new RenderTexture(1, 1, 0);
+				adaptRenderTex[i].hideFlags = HideFlags.HideAndDontSave;
+			}
+		}
+	}
+
+	private void OnDisable()
+	{
+		for (int i = 0; i < 2; i++)
+		{
+			Object.DestroyImmediate(adaptRenderTex[i]);
+			adaptRenderTex[i] = null;
+		}
+		if ((bool)m_materialLum)
+		{
+			Object.DestroyImmediate(m_materialLum);
+		}
+		if ((bool)m_materialReduce)
+		{
+			Object.DestroyImmediate(m_materialReduce);
+		}
+		if ((bool)m_materialAdapt)
+		{
+			Object.DestroyImmediate(m_materialAdapt);
+		}
+		if ((bool)m_materialApply)
+		{
+			Object.DestroyImmediate(m_materialApply);
+		}
+	}
+
+	private void OnRenderImage(RenderTexture source, RenderTexture destination)
+	{
+		const int TEMP_RATIO = 1;
+		RenderTexture rtTempSrc = RenderTexture.GetTemporary(source.width / TEMP_RATIO, source.height / TEMP_RATIO);
+		Graphics.Blit(source, rtTempSrc, materialLum);
+		const int FINAL_SIZE = 1;
+		while (rtTempSrc.width > FINAL_SIZE || rtTempSrc.height > FINAL_SIZE)
+		{
+			const int REDUCE_RATIO = 2;
+			int destW = rtTempSrc.width / REDUCE_RATIO;
+			if (destW < FINAL_SIZE)
+			{
+				destW = FINAL_SIZE;
+			}
+			int destH = rtTempSrc.height / REDUCE_RATIO;
+			if (destH < FINAL_SIZE)
+			{
+				destH = FINAL_SIZE;
+			}
+			RenderTexture rtTempDst = RenderTexture.GetTemporary(destW, destH);
+			Graphics.Blit(rtTempSrc, rtTempDst, materialReduce);
+			RenderTexture.ReleaseTemporary(rtTempSrc);
+			rtTempSrc = rtTempDst;
+		}
+		CalculateAdaptation(rtTempSrc);
+		materialApply.SetTexture("_AdaptTex", adaptRenderTex[curAdaptIndex]);
+		Graphics.Blit(source, destination, materialApply);
+		RenderTexture.ReleaseTemporary(rtTempSrc);
+	}
+
+	private void CalculateAdaptation(Texture curTexture)
+	{
+		int prevAdaptIndex = curAdaptIndex;
+		curAdaptIndex = (curAdaptIndex + 1) % 2;
+		float adaptLerp = 1f - Mathf.Pow(1f - adaptationSpeed, 30f * Time.deltaTime);
+		const float kMinAdaptLerp = 0.01f;
+		adaptLerp = Mathf.Clamp(adaptLerp, kMinAdaptLerp, 1f);
+		materialAdapt.SetTexture("_CurTex", curTexture);
+		materialAdapt.SetVector("_AdaptParams", new Vector4(adaptLerp, limitMinimum, limitMaximum, 0f));
+		Graphics.SetRenderTarget(adaptRenderTex[curAdaptIndex]);
+		GL.Clear(false, true, Color.black);
+		Graphics.Blit(adaptRenderTex[prevAdaptIndex], adaptRenderTex[curAdaptIndex], materialAdapt);
+	}
+}

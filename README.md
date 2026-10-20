@@ -11,9 +11,13 @@ Source for the four script assemblies of Gang Beasts 0.0.3 (Unity 4.3.2f1, Windo
 
 The UnityScript assemblies are real `.js` compiled with `us.exe`, not C# ports.
 
-## Not included
+## Unity project
 
-The game, the Unity editor and any assets taken from the game are not in this repository. To build, place these next to `reconstruction/`:
+`reconstruction/GangBeasts/` is a complete Unity 4.3.2 project: the game's scenes and assets (exported with AssetRipper 2.0.0) wired to the reconstructed scripts. Open it with Unity 4.3.2 via `-projectPath` (see `reconstruction/Open GangBeasts in Unity 4.3.2.bat`; Unity 4.3's Project Wizard crashes on Windows 10/11 when it switches projects), then build it with File → Build Settings.
+
+## Rebuilding and proving the scripts
+
+These need two folders next to `reconstruction/`, neither of which is in the repository:
 
 - `gang_beasts_0_0_3_windows/`: your copy of the game.
 - `UnitySetup-4.3.2/`: Unity 4.3.2 (its Mono and compilers are used directly).
@@ -23,7 +27,7 @@ The game, the Unity editor and any assets taken from the game are not in this re
 ```bash
 bash tools/build.sh                         # Unity-exact compile → build/out/
 bash tools/prove_all.sh                     # clean build + byte proof + IL diff → proof/SUMMARY.txt
-python -I tools/assemble_project.py <dir>   # Unity 4.3.2 project (needs an AssetRipper export in export/)
+python -I tools/assemble_project.py <dir>   # regenerate the Unity project (needs an AssetRipper export in export/)
 ```
 
 `.gitattributes` turns off line-ending conversion so the sources stay byte-exact. See [CLAUDE.md](CLAUDE.md) for the pipeline, the tools and the compiler idioms that decide a 1:1 match.

@@ -1,4 +1,6 @@
 #pragma strict
+#pragma implicit
+#pragma downcast
 
 enum Dof34QualitySetting {
 	OnlyBackground = 1,

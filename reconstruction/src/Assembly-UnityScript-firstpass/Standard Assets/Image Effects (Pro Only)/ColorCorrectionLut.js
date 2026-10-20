@@ -1,4 +1,6 @@
 #pragma strict
+#pragma implicit
+#pragma downcast
 
 @script ExecuteInEditMode
 @script AddComponentMenu ("Image Effects/Color Adjustments/Color Correction (3D Lookup Texture)")

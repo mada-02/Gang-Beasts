@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: 2f67aca5f39e9de46867e16123bf6f47
+timeCreated: 1792465855
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 2
+  name:
+  fontSize: 35
+  forceTextureCase: -2
+  characterSpacing: 1
+  characterPadding: 0
+  includeFontData: 1
+  use2xBehaviour: 0
+  fontNames:
+  - Compacta Bd BT
+  customCharacters:
+  fontRenderingMode: 0
+  output:
+    hasEmptyFontData: 0
+  userData:

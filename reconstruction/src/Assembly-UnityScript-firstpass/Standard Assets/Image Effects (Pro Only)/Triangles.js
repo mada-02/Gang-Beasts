@@ -1,4 +1,6 @@
 #pragma strict
+#pragma implicit
+#pragma downcast
 
 static var meshes : Mesh[];
 static var currentTris : int = 0;

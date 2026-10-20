@@ -8,7 +8,7 @@ A source reconstruction of **Gang Beasts 0.0.3** (Unity 4.3.2f1, Windows). The g
 
 - `gang_beasts_0_0_3_windows/` — the shipped game. **Read-only ground truth; never modify.** Work on scratch copies elsewhere. Not in git.
 - `UnitySetup-4.3.2/` — (not in git) Unity 4.3.2 editor + its Mono (`Data/Mono/bin/mono.exe`, compilers in `Data/Mono/lib/mono/unity/{smcs,us}.exe`).
-- `reconstruction/` — all work: `src/<Assembly>/` (canonical sources), `layout/` (path maps), `tools/`, `build/`, `proof/`, `export/` (AssetRipper output + `ShaderText/`), `GangBeasts/` (assembled Unity project). `build/`, `decompiled/`, `export/`, `GangBeasts/` and `tools/bin/` are generated and git-ignored.
+- `reconstruction/` — all work: `src/<Assembly>/` (canonical sources), `layout/` (path maps), `tools/`, `build/`, `proof/`, `export/` (AssetRipper output + `ShaderText/`), `GangBeasts/` (assembled Unity project). `build/`, `decompiled/`, `export/`, `tools/bin/` and `GangBeasts/{Library,Temp}` are generated and git-ignored; `GangBeasts/` itself (assets + scripts) is committed. Keep its scripts identical to `src/` (copy edits both ways).
 - `init.bat` puts the bundled portable Node/Git on PATH (cmd only).
 
 ## Status (keep updated)

@@ -1,0 +1,1766 @@
+{
+ "scripts": [
+  {
+   "assembly": "Assembly-CSharp-firstpass",
+   "path": "Assets/Plugins/cInput/cGUI.cs",
+   "guid": "beadccba2b9313f74d20c663f566bfd5",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp-firstpass",
+   "path": "Assets/Plugins/cInput/cInput.cs",
+   "guid": "eb4551f65325c6f57ba536599690c231",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp-firstpass",
+   "path": "Assets/Plugins/cInput/cInputGUI.cs",
+   "guid": "5ebdb8fd9eb5f56f84a5c71d47843719",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp-firstpass",
+   "path": "Assets/Plugins/cInput/cKeys.cs",
+   "guid": "948e17ac8784da27a906a1fc72be0a93",
+   "guid_origin": "stable-path-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp-firstpass",
+   "path": "Assets/Standard Assets/Image Effects (Pro Only)/BlurEffect.cs",
+   "guid": "52c0d92c1d833e541664ff0b87a834f1",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp-firstpass",
+   "path": "Assets/Standard Assets/Image Effects (Pro Only)/ColorCorrectionEffect.cs",
+   "guid": "9c97c9dceacfb8179c75dd9203089fba",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp-firstpass",
+   "path": "Assets/Standard Assets/Image Effects (Pro Only)/ContrastStretchEffect.cs",
+   "guid": "1544462409ad65ba55b9b043b5bbb8dd",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp-firstpass",
+   "path": "Assets/Standard Assets/Image Effects (Pro Only)/GlowEffect.cs",
+   "guid": "8f5556de37cbc952007f94e775cb3438",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp-firstpass",
+   "path": "Assets/Standard Assets/Image Effects (Pro Only)/GrayscaleEffect.cs",
+   "guid": "03ab87e5e210453b29bc2d50698df486",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp-firstpass",
+   "path": "Assets/Standard Assets/Image Effects (Pro Only)/ImageEffectBase.cs",
+   "guid": "9454f06b608d4d92b2d8b8377c32ec95",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp-firstpass",
+   "path": "Assets/Standard Assets/Image Effects (Pro Only)/ImageEffects.cs",
+   "guid": "bff55dc88af32ddc9b7579b6e64b96eb",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp-firstpass",
+   "path": "Assets/Standard Assets/Image Effects (Pro Only)/MotionBlur.cs",
+   "guid": "ced2895b6d2563ff1aae3d857502438b",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp-firstpass",
+   "path": "Assets/Standard Assets/Image Effects (Pro Only)/NoiseEffect.cs",
+   "guid": "afc11737d4da9e8c3a255bd813f0080d",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp-firstpass",
+   "path": "Assets/Standard Assets/Image Effects (Pro Only)/SSAOEffect.cs",
+   "guid": "0b0d85a55f3c6b192b44f4910b618d21",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp-firstpass",
+   "path": "Assets/Standard Assets/Image Effects (Pro Only)/SepiaToneEffect.cs",
+   "guid": "4094f05ca1ea62e756f1fef1f496e404",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp-firstpass",
+   "path": "Assets/Standard Assets/Image Effects (Pro Only)/TwirlEffect.cs",
+   "guid": "b3b015ccf074e4c2e66b8cf97ce8850b",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp-firstpass",
+   "path": "Assets/Standard Assets/Image Effects (Pro Only)/VortexEffect.cs",
+   "guid": "d07ab3dba8bbc1ba64b2cddd73449c48",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp-firstpass",
+   "path": "Assets/Standard Assets/Water (Pro Only)/Water.cs",
+   "guid": "c5f3ce7461b2f221d4b550936b183b69",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp-firstpass",
+   "path": "Assets/Standard Assets/Water (Pro Only)/Water4/Sources/Scripts/Displace.cs",
+   "guid": "307bd431aee9f876ff7d2b6e605fc414",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp-firstpass",
+   "path": "Assets/Standard Assets/Water (Pro Only)/Water4/Sources/Scripts/GerstnerDisplace.cs",
+   "guid": "600d7813ca33bfb849db736a06b3e28f",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp-firstpass",
+   "path": "Assets/Standard Assets/Water (Pro Only)/Water4/Sources/Scripts/MeshContainer.cs",
+   "guid": "16e3d4e2d1c0fb2775df365e4224fe23",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp-firstpass",
+   "path": "Assets/Standard Assets/Water (Pro Only)/Water4/Sources/Scripts/PlanarReflection.cs",
+   "guid": "00ac6a0dd980545c5083757371a83002",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp-firstpass",
+   "path": "Assets/Standard Assets/Water (Pro Only)/Water4/Sources/Scripts/SpecularLighting.cs",
+   "guid": "164f42af9348b1c08e9c6f79bf219647",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp-firstpass",
+   "path": "Assets/Standard Assets/Water (Pro Only)/Water4/Sources/Scripts/WaterBase.cs",
+   "guid": "08a9eab9296b994e0cf516798a84dfbb",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp-firstpass",
+   "path": "Assets/Standard Assets/Water (Pro Only)/Water4/Sources/Scripts/WaterTile.cs",
+   "guid": "73309c16ab4552429171c7db0e3433d0",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-UnityScript-firstpass",
+   "path": "Assets/Standard Assets/Image Effects (Pro Only)/AmbientObscurance.js",
+   "guid": "c1579c26bb2133ed66bba52c076a0bb6",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-UnityScript-firstpass",
+   "path": "Assets/Standard Assets/Image Effects (Pro Only)/AntialiasingAsPostEffect.js",
+   "guid": "0e9eecf77dbb149978171b98dd182338",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-UnityScript-firstpass",
+   "path": "Assets/Standard Assets/Image Effects (Pro Only)/Bloom.js",
+   "guid": "5e6866dcd9929d6e20aa162d264f23d2",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-UnityScript-firstpass",
+   "path": "Assets/Standard Assets/Image Effects (Pro Only)/BloomAndLensFlares.js",
+   "guid": "897f7205c458d7cff2fcb4b4dcfa3295",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-UnityScript-firstpass",
+   "path": "Assets/Standard Assets/Image Effects (Pro Only)/Blur.js",
+   "guid": "542b8286be25d9b1d119fd22321183a3",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-UnityScript-firstpass",
+   "path": "Assets/Standard Assets/Image Effects (Pro Only)/CameraMotionBlur.js",
+   "guid": "465f3dfb2f5b69718fd04276a6ba13b3",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-UnityScript-firstpass",
+   "path": "Assets/Standard Assets/Image Effects (Pro Only)/ColorCorrectionCurves.js",
+   "guid": "f04e05110126f95aa235ed68d8504c0e",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-UnityScript-firstpass",
+   "path": "Assets/Standard Assets/Image Effects (Pro Only)/ColorCorrectionLut.js",
+   "guid": "a15c853ae936332288a55347933688a2",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-UnityScript-firstpass",
+   "path": "Assets/Standard Assets/Image Effects (Pro Only)/ContrastEnhance.js",
+   "guid": "6a66cb97880a94e4410b6f75e2a5b3f9",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-UnityScript-firstpass",
+   "path": "Assets/Standard Assets/Image Effects (Pro Only)/Crease.js",
+   "guid": "9de9a558091e7ece9239240e9ef24f52",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-UnityScript-firstpass",
+   "path": "Assets/Standard Assets/Image Effects (Pro Only)/DepthOfField34.js",
+   "guid": "0648e1bd335f2f1c630801bd54727903",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-UnityScript-firstpass",
+   "path": "Assets/Standard Assets/Image Effects (Pro Only)/DepthOfFieldScatter.js",
+   "guid": "bc2d7191d0d7db12905bbb7cb2b6e214",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-UnityScript-firstpass",
+   "path": "Assets/Standard Assets/Image Effects (Pro Only)/EdgeDetectEffectNormals.js",
+   "guid": "8a45db41c9eb571556b4096f5ab29f6f",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-UnityScript-firstpass",
+   "path": "Assets/Standard Assets/Image Effects (Pro Only)/FastBloom.js",
+   "guid": "9af3869f2a9545aab05a091b00480fba",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-UnityScript-firstpass",
+   "path": "Assets/Standard Assets/Image Effects (Pro Only)/Fisheye.js",
+   "guid": "6e61addbb070088d8e72980caee52227",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-UnityScript-firstpass",
+   "path": "Assets/Standard Assets/Image Effects (Pro Only)/GlobalFog.js",
+   "guid": "568a5e0ec9b61400b6ad93961bd6202a",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-UnityScript-firstpass",
+   "path": "Assets/Standard Assets/Image Effects (Pro Only)/NoiseAndGrain.js",
+   "guid": "c70e3fe50e4efa01be33e06d48322f42",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-UnityScript-firstpass",
+   "path": "Assets/Standard Assets/Image Effects (Pro Only)/PostEffectsBase.js",
+   "guid": "38be74e2483e649e8da992c8271a215a",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-UnityScript-firstpass",
+   "path": "Assets/Standard Assets/Image Effects (Pro Only)/PostEffectsHelper.js",
+   "guid": "238648ceb55a531c194c23c606f251f8",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-UnityScript-firstpass",
+   "path": "Assets/Standard Assets/Image Effects (Pro Only)/Quads.js",
+   "guid": "9149310f6e369c215fd2967f5f678559",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-UnityScript-firstpass",
+   "path": "Assets/Standard Assets/Image Effects (Pro Only)/ScreenOverlay.js",
+   "guid": "0726c1dcca15c5afc9a7eadc26eb2beb",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-UnityScript-firstpass",
+   "path": "Assets/Standard Assets/Image Effects (Pro Only)/SunShafts.js",
+   "guid": "1cbe8456b84ec2af534dd842a3604ee5",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-UnityScript-firstpass",
+   "path": "Assets/Standard Assets/Image Effects (Pro Only)/TiltShiftHdr.js",
+   "guid": "83c6d9a7c0f97459c08ec5ac2f58452c",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-UnityScript-firstpass",
+   "path": "Assets/Standard Assets/Image Effects (Pro Only)/Tonemapping.js",
+   "guid": "20df003b0a96ad295163ffc5ee3fc006",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-UnityScript-firstpass",
+   "path": "Assets/Standard Assets/Image Effects (Pro Only)/Triangles.js",
+   "guid": "58f3a871f076e26fcdd82b8bb49926d3",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-UnityScript-firstpass",
+   "path": "Assets/Standard Assets/Image Effects (Pro Only)/Vignetting.js",
+   "guid": "5dc2b0654069bf47f96a716d4b18385f",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-UnityScript-firstpass",
+   "path": "Assets/Standard Assets/Scripts/General Scripts/TimedObjectDestructor.js",
+   "guid": "819ba16742ad23900691f25653e2a666",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/01 ProBuilder/API Examples/ProBuilderInstantiate.cs",
+   "guid": "6a921765ab9272c4b6e67c60ceb6bf35",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/01 ProBuilder/API Examples/pb_Selection.cs",
+   "guid": "ce4bd2e2d4bffc513162a61d0c35c106",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/02 ProBuilder/Runtime/RuntimeEdit.cs",
+   "guid": "125fd5b47db78b8d0b7f664339730846",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/02 ProBuilder/Runtime/pbVersionBridge.cs",
+   "guid": "553dcfe2a8b59b102c1e94449692b46c",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/03 ProGrids/GameObjectExtensions.cs",
+   "guid": "1b5e366d403069e812f3f516df399e00",
+   "guid_origin": "stable-path-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/03 ProGrids/pg_Util.cs",
+   "guid": "2c62f01c193d5ed8bed8026bddb1c622",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/04 Circular Gravity/CircularGravity.cs",
+   "guid": "39a01a4539e71da000dc8ff51cecf0fb",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/04 Circular Gravity/CircularGravityGizmos.cs",
+   "guid": "fdc4105de3406029ab7eaf0cec49020a",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/04 Circular Gravity/CircularGravityVisualizer.cs",
+   "guid": "1780bd6e6d80a88dd63d66f3806c106b",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/04 Circular Gravity/EnableCircularGravityControls.cs",
+   "guid": "b2424f23a735925c62208521d83c3cac",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/04 Circular Gravity/LookAtObject.cs",
+   "guid": "15220184c7f3514163752b71b17cc8d9",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/04 Circular Gravity/MoveVacuum.cs",
+   "guid": "20e423802ea85e60a612ca7680748ce0",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/04 Circular Gravity/RollControls.cs",
+   "guid": "2c73e6449ad929bd333378db6eb1d1c3",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/04 Circular Gravity/RotateAround.cs",
+   "guid": "120b3ed811f69ec8f40c7f4139516abe",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/04 Circular Gravity/RotateControls.cs",
+   "guid": "10c95a52315b525ca8ed0ade5f65d82b",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/04 Circular Gravity/SceneTimeScale.cs",
+   "guid": "7a5719501c5f6fb738cd95a22bfb1935",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/04 Circular Gravity/Shoot.cs",
+   "guid": "b8cf29ccd9eef8d7e29dd2c17ce656a5",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/04 Circular Gravity/ShowHelpInfo.cs",
+   "guid": "ca0d036230fe228c35d0805b8b03c337",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/04 Circular Gravity/Spawn.cs",
+   "guid": "eaabefcca2b283422ee16b6d2c32ec2b",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/04 Circular Gravity/WorldGravity.cs",
+   "guid": "f5ad8a2ac0237de3214c1ea64324e2b6",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/05 Colorful/CC_AnalogTV.cs",
+   "guid": "a0d8bc16035bd0565d30e4234effcd57",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/05 Colorful/CC_Base.cs",
+   "guid": "31a8cba28f46f5478135215bd6aac76b",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/05 Colorful/CC_BleachBypass.cs",
+   "guid": "a5137242f8c0d19b7644c4b1c58f3d91",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/05 Colorful/CC_Blend.cs",
+   "guid": "ec4e28cbcb0b21bddb15996b9fbe9370",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/05 Colorful/CC_BrightnessContrastGamma.cs",
+   "guid": "36ca34a81d3b79ab913ea6bdb4d679d5",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/05 Colorful/CC_ChannelMixer.cs",
+   "guid": "7a5f9fdee0ebface8fec3d309cd31f6d",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/05 Colorful/CC_Convolution3x3.cs",
+   "guid": "75bd2d168c9356a2cb1211a8c070359c",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/05 Colorful/CC_DoubleVision.cs",
+   "guid": "046609375799c2bacb4dc5c858e30980",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/05 Colorful/CC_FastVignette.cs",
+   "guid": "c211a3b8a6a44743ba9bcd0ce0a47594",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/05 Colorful/CC_Frost.cs",
+   "guid": "3e42587f78ecfab510d9f56c260f641c",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/05 Colorful/CC_GradientRamp.cs",
+   "guid": "2737e825679023c1930f99ea9dbd70e6",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/05 Colorful/CC_Grayscale.cs",
+   "guid": "26e14c09967599ae807fec4c7b139677",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/05 Colorful/CC_HueSaturationValue.cs",
+   "guid": "73a6a0933100c2d25a1cbbc5ce422dee",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/05 Colorful/CC_Led.cs",
+   "guid": "9ae0f4249d3ed8d005e9770f9cd4543c",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/05 Colorful/CC_Levels.cs",
+   "guid": "f2fa0a2f9b15d91a0708bb55b8b972d1",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/05 Colorful/CC_LookupFilter.cs",
+   "guid": "a745a46c1b23f1bc1c6b8a17b1cff69f",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/05 Colorful/CC_Negative.cs",
+   "guid": "2f93c23023200c52993817aedecf2030",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/05 Colorful/CC_PhotoFilter.cs",
+   "guid": "cd717ba5f13fce723464ad75c7b27c53",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/05 Colorful/CC_Pixelate.cs",
+   "guid": "75dc6292946cb3bf8c43cfb6d31518c7",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/05 Colorful/CC_Posterize.cs",
+   "guid": "cbf6e060a1ff052ef27a795520bbba3d",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/05 Colorful/CC_RGBSplit.cs",
+   "guid": "49a77663f27428edd143812aebd77be4",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/05 Colorful/CC_RadialBlur.cs",
+   "guid": "f7d91b96d66d1bd90be8bf21d9a06517",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/05 Colorful/CC_Sharpen.cs",
+   "guid": "409d0528ab40c37504c9c61d9f48e93a",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/05 Colorful/CC_Threshold.cs",
+   "guid": "b12b72c9e6d133f096e282edc54d7946",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/05 Colorful/CC_Vibrance.cs",
+   "guid": "11f4fc4a9801e991b56e0e2832643a11",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/05 Colorful/CC_Wiggle.cs",
+   "guid": "e719a00640e1e11a5944804c5dce29de",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/06 Destruction/Demo/Cannon.cs",
+   "guid": "6f93ab560b93e299866c8c4735323d9c",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/06 Destruction/Demo/GUIController.cs",
+   "guid": "bf10452f581ce05001b23fa8c9b05c82",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/07 Destruction/Dynamic/Box/BoxFracture.cs",
+   "guid": "6cdc2ff0b1e6e4ad6e1059dc8bd80fbb",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/08 Destruction/Common/BaseDestructable.cs",
+   "guid": "0a6ab9372fe5932381c7b1bf45211c42",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/08 Destruction/Common/CreationSingleton.cs",
+   "guid": "a40b9ba20d6b2ec5d75ab3a6a73aa124",
+   "guid_origin": "stable-path-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/09 Destruction/Dynamic/BaseFracture.cs",
+   "guid": "ed47062a770163a7146db2f969de6239",
+   "guid_origin": "stable-path-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/09 Destruction/Dynamic/Shard.cs",
+   "guid": "c57415954e6fac764c09af5f0a562ebf",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/09 Destruction/Dynamic/ShardPool.cs",
+   "guid": "45bf1a678e5d4fc22ebc1794d5240598",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/10 Destruction/Common/Ranges/RangedInt.cs",
+   "guid": "ac4badec7dec5902fc099ad0ad7562cb",
+   "guid_origin": "stable-path-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/11 Destruction/Helpers/DestructionHelper.cs",
+   "guid": "3cd20b05915e324fc30cbf6ce67ff026",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/11 Destruction/Helpers/RangedFloat.cs",
+   "guid": "79c38887171c70a5692be26a8ee79147",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/12 Destruction/Interfaces/IDestructable.cs",
+   "guid": "094d0dd0d943f3416820ae47861cc6b7",
+   "guid_origin": "stable-path-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/13 Destruction/Tools/ConvexFracture.cs",
+   "guid": "2e28d15f68ab1e15840cfac78e5af3e8",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/13 Destruction/Tools/DestroyMeOffscreen.cs",
+   "guid": "f3ef93601038b79120a545978943db6c",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/13 Destruction/Tools/IDamagable.cs",
+   "guid": "7510ca688c3237c2a52c7390d17d774c",
+   "guid_origin": "stable-path-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/13 Destruction/Tools/IDestructionAffectable.cs",
+   "guid": "d2d294bb7738fa43f998fa77ed6a5692",
+   "guid_origin": "stable-path-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/13 Destruction/Tools/LinkObjectsOnDestroy.cs",
+   "guid": "b9725427204d4b70570200f8fc8e98f7",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/13 Destruction/Tools/RigidJoint.cs",
+   "guid": "a8a9405a71163f48641a03594e099828",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/14 Destruction/Tools/Scheduling/ISchedulable.cs",
+   "guid": "0d9fdbbaf71f7da953886b340d861c0d",
+   "guid_origin": "stable-path-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/14 Destruction/Tools/Scheduling/Scheduler.cs",
+   "guid": "d094f0b578582c2c744dbf4d15fc6074",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/14 Destruction/Tools/Scheduling/StickyZone.cs",
+   "guid": "fbb5fd11c9fbafce4fa3faaa8f2004a6",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/14 Destruction/Tools/Scheduling/Trigger.cs",
+   "guid": "d59cb9f830f77a97963b11512d935dfc",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/15 Destruction/Utilities/FloodFiller/BaseFloodFiller.cs",
+   "guid": "d5b9eba61d27da47e76a892c6698e4fd",
+   "guid_origin": "stable-path-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/15 Destruction/Utilities/FloodFiller/FloodFiller2.cs",
+   "guid": "1ba0757b2f121e44e57f1fb4ab96cf79",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/15 Destruction/Utilities/FloodFiller/FloodFiller3.cs",
+   "guid": "c1faeb3dc11b3d74de27c68efe168844",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/16 Destruction/Utilities/Face.cs",
+   "guid": "360dd05642c0b1e6dd820648b8c42b4e",
+   "guid_origin": "stable-path-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/16 Destruction/Utilities/MeshUtility.cs",
+   "guid": "4842b3066f0927e543261ab5fe9095b3",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/16 Destruction/Utilities/int2.cs",
+   "guid": "12e02ef1dd6b4a8f70e96089c8fe7145",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/16 Destruction/Utilities/int3.cs",
+   "guid": "73ed836468e223a1608d32cf99e1c0c1",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/17 Marmoset/Demo/MopedDemo.cs",
+   "guid": "bac9e3edaa32542cecfe941964b744d8",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/17 Marmoset/Demo/ProbeDemo.cs",
+   "guid": "c2c3f05b493bea846da19438be3a045b",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/17 Marmoset/Demo/SkySwab.cs",
+   "guid": "a2ea323f883124cca86fd3b0bd9eca62",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/18 Marmoset/Legacy/Sky.cs",
+   "guid": "3458139d2e6c10f591f6ec76f7447192",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/19 Marmoset/Skyshop/Corner.cs",
+   "guid": "5595474d5cc09055371993926fb0f677",
+   "guid_origin": "stable-path-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/19 Marmoset/Skyshop/Logo.cs",
+   "guid": "5139c29d39058398d9028d5f8e163d19",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/19 Marmoset/Skyshop/SHEncoding.cs",
+   "guid": "0d09735af78014653855fccd78b5593e",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/19 Marmoset/Skyshop/Sky.cs",
+   "guid": "68bd3792456da76275049302fcbaa605",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/20 MGBlendTable/MGBlendTable.cs",
+   "guid": "5ca042fec8945c92849ec640490ff2ae",
+   "guid_origin": "stable-path-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/21 DOFCamera/DOFCamera.cs",
+   "guid": "06453de598e5ff18a6dda8c68e7b6e35",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/22 MegaGrab/JPGEncoder.cs",
+   "guid": "fbaf42bcd57feb374ae7460490527d1b",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/22 MegaGrab/MegaGrab.cs",
+   "guid": "f3b81e4c4bb1b1c23568d9dcbbd09bd1",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/22 MegaGrab/MicrophoneSource.cs",
+   "guid": "bf2aef7c2d64fd99876bc9163a746e68",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/23 Gang Beasts/Effects/AudioTimeScale.cs",
+   "guid": "4ce351d8e7fd71155cde50031f33796c",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/23 Gang Beasts/Effects/Blood.cs",
+   "guid": "3049e42bda86b5dbb446d33ad5c7ab20",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/23 Gang Beasts/Effects/BloodSpray.cs",
+   "guid": "bbc7519d0598404637410fe4264523a5",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/23 Gang Beasts/Effects/Boom.cs",
+   "guid": "f5078a366c206775916660e5ad0e4324",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/23 Gang Beasts/Effects/Bounce.cs",
+   "guid": "b6183966a608f3e752c9519e2c676d1f",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/23 Gang Beasts/Effects/CameraController.cs",
+   "guid": "7cf202e78d222ecbee691e03fc1669f8",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/23 Gang Beasts/Effects/DontTrackZone.cs",
+   "guid": "3326120ec3e17e1e61f9b899b6a8a8bd",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/24 Gang Beasts/Environment/CameraShake.cs",
+   "guid": "30b411d090599ca49164a82da6acd001",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/24 Gang Beasts/Environment/GlassBreak.cs",
+   "guid": "85721caddca87ceb0969ba0f045a8bc7",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/24 Gang Beasts/Environment/Grass.cs",
+   "guid": "7ebbf66c04922e99407221d022b395d4",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/24 Gang Beasts/Environment/KillZone.cs",
+   "guid": "db4978db3b04e899253366b2e42143c7",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/24 Gang Beasts/Environment/LightFlicker.cs",
+   "guid": "a5ffb90e25da802063144102efe65833",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/24 Gang Beasts/Environment/Respawn.cs",
+   "guid": "0085d37d497c488a4b3115ce33b5e1fa",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/24 Gang Beasts/Environment/WarpZone.cs",
+   "guid": "165a4df101f7ffcd62d7290babbee196",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/24 Gang Beasts/Environment/Water.cs",
+   "guid": "f3c719e595439b501e0b5e0728c8e73a",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/24 Gang Beasts/Environment/Wind.cs",
+   "guid": "7fc67b366ab111ccfc3b5b078126b638",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/24 Gang Beasts/Environment/Window.cs",
+   "guid": "5ae8223b1a75556761304898e1a0465f",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/25 Gang Beasts/Environment/Machines/Escalator.cs",
+   "guid": "9d264a2ded5ff8009753d87cbd73823f",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/25 Gang Beasts/Environment/Machines/FlameFlicker.cs",
+   "guid": "65097061b677ce889821783b37689bd7",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/26 Gang Beasts/GUI/CameraFade.cs",
+   "guid": "cd7b91cc99cba862c2b8cc7b7e574ed0",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/26 Gang Beasts/GUI/LaunchBindingWindow.cs",
+   "guid": "bf2b5e1f8f74e351d5033cc90f1a9ad5",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/27 Gang Beasts/GUI/HUD/HUDFPS.cs",
+   "guid": "0a013a2bef45b752a1d1045b9f7b9bf6",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/27 Gang Beasts/GUI/HUD/Lift.cs",
+   "guid": "24f8bbf63ae002b707e7171d5e75e86e",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/27 Gang Beasts/GUI/HUD/MenuController.cs",
+   "guid": "6fae0a7d105dcc8db83d5ea28164a655",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/28 Gang Beasts/Player/Blink.cs",
+   "guid": "1fb53ac378b05492a11b01737f1fc385",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/28 Gang Beasts/Player/CollisionEvent.cs",
+   "guid": "8f9c997586216c061e6c7730f6dd147b",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/28 Gang Beasts/Player/HealthAndStamina.cs",
+   "guid": "6314ee30c865c7f6575b273ecd28a5fc",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/28 Gang Beasts/Player/Jump.cs",
+   "guid": "b655f570c69ed5f34a463b2d7376acde",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/28 Gang Beasts/Player/MassOffset.cs",
+   "guid": "3b4a823bc2e877ab1869b94cdaa535bd",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/28 Gang Beasts/Player/Mob.cs",
+   "guid": "e062ec6f121c38c811adb81b7918f505",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/28 Gang Beasts/Player/Movement.cs",
+   "guid": "fdef82a9afb9810eba953617902a34e2",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/28 Gang Beasts/Player/Player.cs",
+   "guid": "35f8c4d42304d9a7cd31d22caa78f503",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/28 Gang Beasts/Player/PrintCollision.cs",
+   "guid": "6c1cf737a8075fa2f3270b3346ebbdc6",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/28 Gang Beasts/Player/PunchAndGrab.cs",
+   "guid": "ba5fff9b545994076af27f43880abb65",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/28 Gang Beasts/Player/SceneManager.cs",
+   "guid": "066ce5576f56eac40ae12d08cd24e08d",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/28 Gang Beasts/Player/StatusBar.cs",
+   "guid": "7b4f674730d7710aed14208a1e853344",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/28 Gang Beasts/Player/Targeting.cs",
+   "guid": "c9a8bb7cf3168468e5eeaa88d8df35ec",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/29 Gang Beasts/Menus/Exit.cs",
+   "guid": "bab3d5795e4c26c0caa4111767d9c835",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/29 Gang Beasts/Menus/Intro.cs",
+   "guid": "efc80ab55ba96637de044bce36ed81e0",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/29 Gang Beasts/Menus/Level.cs",
+   "guid": "409054382c13ee7d4e9126c1b58d3c2b",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/29 Gang Beasts/Menus/Music.cs",
+   "guid": "50e98b76f028086af61012809a18d6c2",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/29 Gang Beasts/Menus/MuteMusic.cs",
+   "guid": "191c6633c11f6bcb2db7f5da4c92fa58",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/29 Gang Beasts/Menus/Players.cs",
+   "guid": "07ee7b6011975d87d6117d34a0930563",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/29 Gang Beasts/Menus/Rezzed.cs",
+   "guid": "46d27aa52dd0a66a11093c1869b89ea8",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/29 Gang Beasts/Menus/ScrollUVs.cs",
+   "guid": "8815ffbf96a3722ac3e0b746e117c527",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/29 Gang Beasts/Menus/StartGame.cs",
+   "guid": "e787ac611ad6cb6b0ac408f9d0ed7a1f",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/29 Gang Beasts/Menus/Website.cs",
+   "guid": "e3df8ce71c6e86375a8160e5acadc202",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/30 Gang Beasts/Levels/Road/Road.cs",
+   "guid": "26d49b63fb841134a4896952b7bf5a59",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/30 Gang Beasts/Levels/Road/RoadSpawnObject.cs",
+   "guid": "e6acaf00b0c82d74e9493b175d3ec9c4",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/30 Gang Beasts/Levels/Road/RoadSpawnObjectMover.cs",
+   "guid": "203a74c60ccb79864e6176634f7a93e3",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/30 Gang Beasts/Levels/Road/RopeBreak.cs",
+   "guid": "aab695f28198bdcb139c4a9a3f9a30de",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/30 Gang Beasts/Levels/Road/SceneCamera.cs",
+   "guid": "5dc7f4f2fcb93f84222e20f09fbdd4a9",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/30 Gang Beasts/Levels/Road/SetBreakable.cs",
+   "guid": "442fe433040c77bbe89a6a7e0b2a27f6",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/31 Gang Beasts/Utilities/AnimatedTextureOffset.cs",
+   "guid": "933d9f42ba7d4328ec04fc7267f0b2a4",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/31 Gang Beasts/Utilities/Arrow.cs",
+   "guid": "267623bf17aded404d99882d79022565",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/31 Gang Beasts/Utilities/InputManager.cs",
+   "guid": "f18c741a32bbab4fc562e5d6ad75187c",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/31 Gang Beasts/Utilities/LaunchPadController.cs",
+   "guid": "be94ba035d4dee1d825aa2e742fb661a",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/31 Gang Beasts/Utilities/SetRenderQueue.cs",
+   "guid": "62ded17b020aced19f89ed1d0834dc0f",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/31 Gang Beasts/Utilities/SkinnedMeshCombiner.cs",
+   "guid": "790f8ff36a7c60c117bc7e4e76a14bb8",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/31 Gang Beasts/Utilities/Wheel.cs",
+   "guid": "7c9a0fa7d26a85a32552775594fb605d",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/31 Gang Beasts/Utilities/test.cs",
+   "guid": "e4f67e644e51ba93eb45af1eff6b0e88",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/32 Gang Beasts/Levels/Train/Teleporter.cs",
+   "guid": "8f282857c91ceb0458598e696408870c",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/32 Gang Beasts/Levels/Train/Timer.cs",
+   "guid": "b4ce41d24ce2649302c0b79f09cebd85",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/32 Gang Beasts/Levels/Train/TrackChange.cs",
+   "guid": "40878219a972f3b5fd0ee1c454deab8d",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/32 Gang Beasts/Levels/Train/TrainStop.cs",
+   "guid": "5aaaf79ba14cdead36c36cf0bc0b4b57",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/32 Gang Beasts/Levels/Train/Truck.cs",
+   "guid": "74929421a6b521e07f136c6fa5f90792",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/32 Gang Beasts/Levels/Train/WaveTrigger.cs",
+   "guid": "b1121d9f2d0cc7e1e47f9551d874d104",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/33 Ultimate Fracturing/Poly2Tri/P2T.cs",
+   "guid": "7f3af6810172d83da0cf180b28ddaeb5",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/34 Ultimate Fracturing/Poly2Tri/Triangulation/Delaunay/DelaunayTriangle.cs",
+   "guid": "ca2f3b69e956752f263c911f1c5e0dac",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/35 Ultimate Fracturing/Poly2Tri/Triangulation/Delaunay/Sweep/AdvancingFront.cs",
+   "guid": "9349ad4ea00deaf7194014840a51db58",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/35 Ultimate Fracturing/Poly2Tri/Triangulation/Delaunay/Sweep/AdvancingFrontNode.cs",
+   "guid": "e405a341a87aeb6dca0ec46a958b4937",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/35 Ultimate Fracturing/Poly2Tri/Triangulation/Delaunay/Sweep/DTSweep.cs",
+   "guid": "21788116d46193f3e005bf752689ac67",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/35 Ultimate Fracturing/Poly2Tri/Triangulation/Delaunay/Sweep/DTSweepBasin.cs",
+   "guid": "2714382b3c3e45d37573de9621884354",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/35 Ultimate Fracturing/Poly2Tri/Triangulation/Delaunay/Sweep/DTSweepConstraint.cs",
+   "guid": "e3e2b07e2445c185e8decdff0c3acfcc",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/35 Ultimate Fracturing/Poly2Tri/Triangulation/Delaunay/Sweep/DTSweepContext.cs",
+   "guid": "3a343cb7ca4ef1bfd88b3767c2333d79",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/35 Ultimate Fracturing/Poly2Tri/Triangulation/Delaunay/Sweep/DTSweepDebugContext.cs",
+   "guid": "3c16ed00db4a530e5d6db13387d1537a",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/35 Ultimate Fracturing/Poly2Tri/Triangulation/Delaunay/Sweep/DTSweepEdgeEvent.cs",
+   "guid": "5d20115bc262bf17aa253ae91830fd55",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/35 Ultimate Fracturing/Poly2Tri/Triangulation/Delaunay/Sweep/DTSweepPointComparator.cs",
+   "guid": "d58e64ef8ad56028686c678cd904e522",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/35 Ultimate Fracturing/Poly2Tri/Triangulation/Delaunay/Sweep/PointOnEdgeException.cs",
+   "guid": "dfe0879c45a5c7458dd3f23c65fd643c",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/36 Ultimate Fracturing/Poly2Tri/Triangulation/ITriangulatable.cs",
+   "guid": "4ee5b1e1a21a22f79e543237b63e5cc7",
+   "guid_origin": "stable-path-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/36 Ultimate Fracturing/Poly2Tri/Triangulation/Orientation.cs",
+   "guid": "329ed42c61c35697998dd25d0ed396ea",
+   "guid_origin": "stable-path-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/37 Ultimate Fracturing/Poly2Tri/Triangulation/Polygon/Contour.cs",
+   "guid": "c8ee4c749ed9cfd3ce9714297232726d",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/37 Ultimate Fracturing/Poly2Tri/Triangulation/Polygon/Polygon.cs",
+   "guid": "c96f62cd2c9a16d7ad2766eee274ff49",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/37 Ultimate Fracturing/Poly2Tri/Triangulation/Polygon/PolygonPoint.cs",
+   "guid": "cba154ac85a111129b078c3bce02bc8f",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/37 Ultimate Fracturing/Poly2Tri/Triangulation/Polygon/PolygonSet.cs",
+   "guid": "d4b7d4154f48e09caa45ba7f7ce0186b",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/37 Ultimate Fracturing/Poly2Tri/Triangulation/Polygon/PolygonUtil.cs",
+   "guid": "fefdccb85d4fcf2c8129e922d35cc215",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/38 Ultimate Fracturing/Poly2Tri/Triangulation/Sets/ConstrainedPointSet.cs",
+   "guid": "18b7ddbbc9bada23a62915ab6394d96f",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/38 Ultimate Fracturing/Poly2Tri/Triangulation/Sets/PointSet.cs",
+   "guid": "7821765dbe0ef996b0dfa7de538e9f53",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/38 Ultimate Fracturing/Poly2Tri/Triangulation/Sets/TriangulationAlgorithm.cs",
+   "guid": "37b4260f286253bf0748ea7e2fd784e1",
+   "guid_origin": "stable-path-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/39 Ultimate Fracturing/Poly2Tri/Triangulation/Core/Edge.cs",
+   "guid": "5f1269354399e86fc72b8317d2cebf7a",
+   "guid_origin": "stable-path-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/39 Ultimate Fracturing/Poly2Tri/Triangulation/Core/TriangulationConstraint.cs",
+   "guid": "285e1ba53ab5488aba05bc775a67a339",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/39 Ultimate Fracturing/Poly2Tri/Triangulation/Core/TriangulationContext.cs",
+   "guid": "94c510d2b14d7c4e5615489bd049b420",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/39 Ultimate Fracturing/Poly2Tri/Triangulation/Core/TriangulationDebugContext.cs",
+   "guid": "85765aa85b7eb2aebf1ea5ee0bc28fb0",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/39 Ultimate Fracturing/Poly2Tri/Triangulation/Core/TriangulationMode.cs",
+   "guid": "8aed9acdfe5c0a3f78e679b52d9f1c86",
+   "guid_origin": "stable-path-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/39 Ultimate Fracturing/Poly2Tri/Triangulation/Core/TriangulationPoint.cs",
+   "guid": "fcc8c9d2d243da947426c44e6df04692",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/39 Ultimate Fracturing/Poly2Tri/Triangulation/Core/TriangulationPointEnumerator.cs",
+   "guid": "30169e3ab4da3702703a57cd0d626032",
+   "guid_origin": "stable-path-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/39 Ultimate Fracturing/Poly2Tri/Triangulation/Core/TriangulationPointList.cs",
+   "guid": "c7dd2157f39d8dd231a9766098f2f967",
+   "guid_origin": "stable-path-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/40 Ultimate Fracturing/Poly2Tri/Triangulation/Util/PointGenerator.cs",
+   "guid": "dfde217c1f03d613ed75116bd1be3ecd",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/40 Ultimate Fracturing/Poly2Tri/Triangulation/Util/PolygonGenerator.cs",
+   "guid": "f2e7e952b3a7e78faa9e7b50d4050630",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/40 Ultimate Fracturing/Poly2Tri/Triangulation/Util/TriangulationUtil.cs",
+   "guid": "9a8c4b4f6eb1c89a5648f0b545219190",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/41 Ultimate Fracturing/Poly2Tri/Utility/FixedArray3.cs",
+   "guid": "4be3edd9e4cebc52e4d0d14fe0bc93c0",
+   "guid_origin": "stable-path-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/41 Ultimate Fracturing/Poly2Tri/Utility/FixedBitArray3.cs",
+   "guid": "b8ecbc8a59c865a9d39e3248f6207352",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/41 Ultimate Fracturing/Poly2Tri/Utility/MathUtil.cs",
+   "guid": "a096cd8433bc0004ff2eeefddac20071",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/41 Ultimate Fracturing/Poly2Tri/Utility/Point2D.cs",
+   "guid": "9658021ddc02e32e5d646da53be3441c",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/41 Ultimate Fracturing/Poly2Tri/Utility/Point2DEnumerator.cs",
+   "guid": "d5016ebaa69bc7b1d70ebb3ee570f1a6",
+   "guid_origin": "stable-path-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/41 Ultimate Fracturing/Poly2Tri/Utility/Point2DList.cs",
+   "guid": "916fd3e640289fcd743190e973f8ef85",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/41 Ultimate Fracturing/Poly2Tri/Utility/Rect2D.cs",
+   "guid": "62f47731460ed5f55d1f4b360a6a57d2",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/42 Ultimate Fracturing/Demos/LogicArcsAndColumns.cs",
+   "guid": "3b1dc838f7130b792a134bad26deb2cf",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/42 Ultimate Fracturing/Demos/LogicCollidingSphere.cs",
+   "guid": "9b7182be9e1423c55df25c93c7e42374",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/42 Ultimate Fracturing/Demos/LogicCompoundObject.cs",
+   "guid": "628a8cdd7d734ee34c5a3f4755e75907",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/42 Ultimate Fracturing/Demos/LogicExplodingFloor.cs",
+   "guid": "aa402bff3df60dbb66235b7ec3a49cb2",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/42 Ultimate Fracturing/Demos/LogicExplodingGoblin.cs",
+   "guid": "4f31f589d3707a7d7c45945ec3f9f157",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/42 Ultimate Fracturing/Demos/LogicGlobalFracturing.cs",
+   "guid": "69cd79229181f671553199afe10dd044",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/42 Ultimate Fracturing/Demos/UltimateFracturingFPS.cs",
+   "guid": "e542edb0dfebc7f2a029240113c0aac8",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/43 Ultimate Fracturing/Scripts/ConcaveColliderInterface.cs",
+   "guid": "6ce0b7719cc791076e673314c942ff25",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/43 Ultimate Fracturing/Scripts/ExplosionSource.cs",
+   "guid": "9b0c93145d4bcef06594dbb7746654e5",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/43 Ultimate Fracturing/Scripts/Fracturer.cs",
+   "guid": "be71591fab2799f8b12ddd503d935452",
+   "guid_origin": "stable-path-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/44 Ultimate Fracturing/Scripts/Objects/FracturedChunk.cs",
+   "guid": "f1baa91fb8133572edcc7e5b91a69178",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/44 Ultimate Fracturing/Scripts/Objects/FracturedObject.cs",
+   "guid": "0cf406220fc0869b13968029960b36b5",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/45 Ultimate Fracturing/Scripts/Internal/DieTimer.cs",
+   "guid": "056bdae320ffe81258650dfe0f8c5658",
+   "guid_origin": "stable-path-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/45 Ultimate Fracturing/Scripts/Internal/Parameters.cs",
+   "guid": "b0b57be5c553696e328201d11cbc1a1c",
+   "guid_origin": "stable-path-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/45 Ultimate Fracturing/Scripts/Internal/VertexData.cs",
+   "guid": "364c62021f78be567bc2548b76f7b936",
+   "guid_origin": "stable-path-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/46 Mesh Utilities/CombinedMesh.cs",
+   "guid": "741405698d6bcc150c1137a67907dfb3",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/47 cInput Demo/cInputDemoBoss.cs",
+   "guid": "c01f2b69b3d3e5c197b4f9cd12bd7df9",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/47 cInput Demo/cInputDemoBullet.cs",
+   "guid": "68c6c7cd4531f5a191171801ce6e641b",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/47 cInput Demo/cInputDemoDestroy.cs",
+   "guid": "0be91db9260708aa3191f4517372dc00",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/47 cInput Demo/cInputDemoEnemy.cs",
+   "guid": "334c714a12218f47504c956a37d39d15",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/47 cInput Demo/cInputDemoPlanes.cs",
+   "guid": "d5c0c390817abbc6a7a1c5fbb1531fb6",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/47 cInput Demo/cInputDemoRestart.cs",
+   "guid": "416e155389321a6c68775de5f32b0f13",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/47 cInput Demo/cInputDemoRocket.cs",
+   "guid": "5b973a652eedaa8b9ac7ffe592523ea6",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/47 cInput Demo/cInputDemoSetup.cs",
+   "guid": "0ac743e87747969c88c7b46add8ccafa",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-CSharp",
+   "path": "Assets/Scripts/47 cInput Demo/cInputDemoTurret.cs",
+   "guid": "34c3f2169fe957d842934b47217a50e7",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-UnityScript",
+   "path": "Assets/Scripts JS/01 Prototype/Group.js",
+   "guid": "7ac748080a2dda53a6b18b9b421f46b3",
+   "guid_origin": "stable-path-guid"
+  },
+  {
+   "assembly": "Assembly-UnityScript",
+   "path": "Assets/Scripts JS/01 Prototype/GroupContainer.js",
+   "guid": "a411c1b1796ec559286ee4a49b3d19fe",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-UnityScript",
+   "path": "Assets/Scripts JS/01 Prototype/Mic.js",
+   "guid": "8f99ade19c555066c35dd98a20a493d7",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-UnityScript",
+   "path": "Assets/Scripts JS/01 Prototype/cameraController.js",
+   "guid": "1697ff3fa7247ad6bb3af07edb48736a",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-UnityScript",
+   "path": "Assets/Scripts JS/01 Prototype/jointBreakExample.js",
+   "guid": "58108c28e2df1c4f0cd25ab3d0b25eb5",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-UnityScript",
+   "path": "Assets/Scripts JS/01 Prototype/playerControllerExample.js",
+   "guid": "7aed009c99557ff0e347992513e05b09",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-UnityScript",
+   "path": "Assets/Scripts JS/02 Player/Actor.js",
+   "guid": "2886124ab64f1d3696240322243d92b6",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-UnityScript",
+   "path": "Assets/Scripts JS/02 Player/Grab.js",
+   "guid": "aa1c76b55f8c9b17c1b60c02e013598f",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-UnityScript",
+   "path": "Assets/Scripts JS/02 Player/PlayerDamageCheck.js",
+   "guid": "8482116856ffa6b27e6e8ad7fe8c0806",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-UnityScript",
+   "path": "Assets/Scripts JS/02 Player/playerControllerExample1.js",
+   "guid": "d79ebee6d8ae9d4aeec9ab1846527e0a",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-UnityScript",
+   "path": "Assets/Scripts JS/03 Misc/NewBehaviourScript.js",
+   "guid": "b0c32247d7fa23b09410408244cde54e",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-UnityScript",
+   "path": "Assets/Scripts JS/04 cInput Demo/Boss_js.js",
+   "guid": "15f061f0e06a1a6ca4827e783afedf5c",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-UnityScript",
+   "path": "Assets/Scripts JS/04 cInput Demo/Enemy_js.js",
+   "guid": "1b83daa53a1e91f627fcd0dbb113dca3",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-UnityScript",
+   "path": "Assets/Scripts JS/04 cInput Demo/Planes_js.js",
+   "guid": "8edb8152d7890b9537aa40a20e140028",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-UnityScript",
+   "path": "Assets/Scripts JS/04 cInput Demo/Restart_js.js",
+   "guid": "084cc17ba945cce728ea98af44c7d62c",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-UnityScript",
+   "path": "Assets/Scripts JS/04 cInput Demo/Setup_js.js",
+   "guid": "26798a37218803d1bb8a07dfbb1e9c80",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-UnityScript",
+   "path": "Assets/Scripts JS/04 cInput Demo/Turret_js.js",
+   "guid": "1004e5523345499ea3a4441f4a68eee5",
+   "guid_origin": "assetripper-class-guid"
+  },
+  {
+   "assembly": "Assembly-UnityScript",
+   "path": "Assets/Scripts JS/05 Camera/SmoothFollow.js",
+   "guid": "42dec1e4dc2f57b6cbd4d0ae8cfe700f",
+   "guid_origin": "assetripper-class-guid"
+  }
+ ],
+ "plugin_classes": [
+  {
+   "plugin": "ProBuilderCore",
+   "class": "pb_Entity",
+   "fileID": 16342205,
+   "guid": "690c3745ce6f710fbf0a984efd388376"
+  },
+  {
+   "plugin": "ProBuilderCore",
+   "class": "pb_Group",
+   "fileID": 101360359,
+   "guid": "690c3745ce6f710fbf0a984efd388376"
+  },
+  {
+   "plugin": "ProBuilderCore",
+   "class": "pb_Object",
+   "fileID": 185759285,
+   "guid": "690c3745ce6f710fbf0a984efd388376"
+  }
+ ],
+ "files_with_plugin_references_rewritten": 10,
+ "unresolved_script_references": {}
+}

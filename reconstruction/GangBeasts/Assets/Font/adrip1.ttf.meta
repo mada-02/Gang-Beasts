@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: 502394d61c11f9d498b71afd2f1f0c29
+timeCreated: 1792465854
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 2
+  name:
+  fontSize: 100
+  forceTextureCase: -2
+  characterSpacing: 1
+  characterPadding: 0
+  includeFontData: 1
+  use2xBehaviour: 0
+  fontNames:
+  - a dripping marker
+  customCharacters:
+  fontRenderingMode: 0
+  output:
+    hasEmptyFontData: 0
+  userData:

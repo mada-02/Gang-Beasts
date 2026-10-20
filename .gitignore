@@ -8,7 +8,8 @@
 /reconstruction/build/
 /reconstruction/decompiled/
 /reconstruction/export/
-/reconstruction/GangBeasts/
+/reconstruction/GangBeasts/Library/
+/reconstruction/GangBeasts/Temp/
 /reconstruction/tools/bin/
 /reconstruction/tools/*/obj/
 

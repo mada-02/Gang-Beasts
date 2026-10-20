@@ -1,0 +1,106 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Skin
+  m_Shader: {fileID: 4800000, guid: 8471a3d18b639de488054df8bc75018d, type: 3}
+  m_ShaderKeywords: []
+  m_CustomRenderQueue: -1
+  m_SavedProperties:
+    serializedVersion: 2
+    m_TexEnvs:
+      data:
+        first:
+          name: _MainTex
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 20, y: 20}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _DiffCubeIBL
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _SpecCubeIBL
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+    m_Floats:
+      data:
+        first:
+          name: _Cutoff
+        second: 0.3
+      data:
+        first:
+          name: _Shininess
+        second: 2.535037
+      data:
+        first:
+          name: _Fresnel
+        second: 0.19402985
+      data:
+        first:
+          name: _SpecInt
+        second: 1
+      data:
+        first:
+          name: _Subdermis
+        second: 1
+      data:
+        first:
+          name: _Translucency
+        second: 0.3283582
+      data:
+        first:
+          name: _TranslucencySky
+        second: 1
+      data:
+        first:
+          name: _Fuzz
+        second: 0
+      data:
+        first:
+          name: _FuzzScatter
+        second: 1
+      data:
+        first:
+          name: _FuzzOcc
+        second: 1
+      data:
+        first:
+          name: _Aniso
+        second: 0.46268657
+      data:
+        first:
+          name: _AnisoDir
+        second: 25.522388
+    m_Colors:
+      data:
+        first:
+          name: _Color
+        second: {r: 0.5882353, g: 0.5882353, b: 0.5882353, a: 1}
+      data:
+        first:
+          name: _SpecColor
+        second: {r: 0.53125, g: 0.53125, b: 0.53125, a: 1}
+      data:
+        first:
+          name: _TranslucencyColor
+        second: {r: 1, g: 0.7130506, b: 0.46875, a: 1}
+      data:
+        first:
+          name: _SubdermisColor
+        second: {r: 1, g: 0, b: 0, a: 1}
+      data:
+        first:
+          name: _FuzzColor
+        second: {r: 1, g: 1, b: 1, a: 1}
