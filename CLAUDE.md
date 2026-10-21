@@ -8,11 +8,11 @@ A source reconstruction of **Gang Beasts 0.0.3** (Unity 4.3.2f1, Windows). The g
 
 - `gang_beasts_0_0_3_windows/` — the shipped game. **Read-only ground truth; never modify.** Work on scratch copies elsewhere. Not in git.
 - `UnitySetup-4.3.2/` — (not in git) Unity 4.3.2 editor + its Mono (`Data/Mono/bin/mono.exe`, compilers in `Data/Mono/lib/mono/unity/{smcs,us}.exe`).
-- `reconstruction/` — all work: `src/<Assembly>/` (canonical sources), `layout/` (path maps), `tools/`, `build/`, `proof/`, `export/` (AssetRipper output + `ShaderText/`), `GangBeasts/` (assembled Unity project). `build/`, `decompiled/`, `export/`, `tools/bin/` and `GangBeasts/{Library,Temp}` are generated and git-ignored; `GangBeasts/` itself (assets + scripts) is committed. Keep its scripts identical to `src/` (copy edits both ways).
+- `reconstruction/` — all work: `src/<Assembly>/` (canonical sources), `layout/` (path maps), `tools/`, `build/`, `proof/`, `export/` (AssetRipper output + `ShaderText/`), `GangBeasts/` (assembled Unity project). `build/`, `decompiled/`, `export/`, `tools/bin/` and `GangBeasts/{Library,Temp}` are generated and git-ignored; `GangBeasts/` itself (assets + scripts) is committed. Keep its scripts identical to `src/` (copy edits both ways) — except for the `additional`-branch changes below.
 
 ## Status (keep updated)
 
-Proven byte-identical: Assembly-CSharp-firstpass, Assembly-UnityScript-firstpass, Assembly-UnityScript. **Assembly-CSharp** builds but ~80 methods still differ in IL (paused by the user to ship the Unity project). Get the current list with `ildiff dist` (below).
+**All functions match.** Every method in all four script assemblies (Assembly-CSharp-firstpass, Assembly-UnityScript-firstpass, Assembly-UnityScript, Assembly-CSharp) compiles to IL identical to the shipped game, and each rebuilt DLL is byte-identical to the original apart from the PE `TimeDateStamp` and module MVID. `ildiff dist` reports distance 0 for every method. Re-check with `prove_all.sh` / `ildiff dist` (below). This holds on both branches: the `additional` branch's dev menu never touches `src/`.
 
 ## Commands (run from `reconstruction/`, Git Bash)
 
@@ -30,6 +30,31 @@ python -I tools/assemble_project.py <new-out-dir>                   # build the 
 ```
 
 The .NET tools (`tools/{ildiff,relayout,autofix,cs2us}`) are rebuilt with `dotnet build -c Release -o ../bin/<name>`; `ildiff` and `autofix` share `tools/ilmodel/IlModel.cs`. REA CLI: `npx -y rea-agents@6.7.0 compare-managed-members <orig> <rebuilt> --format json`.
+
+## Branches and the F12 dev menu (`additional` branch only)
+
+This CLAUDE.md is the same on both branches. **The dev menu exists only on `additional`**; if you're on `main`, none of the files below are present. Check with `git branch --show-current`.
+
+- `main` — the pure 1:1 reconstruction. The Unity project's scripts are identical to `src/`.
+- `additional` — `main` plus a sandbox dev menu.
+
+The `additional` branch adds a sandbox dev menu **only to the Unity project** (`reconstruction/GangBeasts/Assets`); `src/`, `layout/`, `tools/` and `proof/` are untouched, so the byte-exact proof still applies to `src/`. Branch-only differences:
+
+- `Assets/DevMenu/DevMenu.cs` — IMGUI window toggled with **F12** (`toggleKey`). Tabs:
+  - **AI**: spawns copies of a level beast as mobs (`Player.mob = true`, `player = 4` so it never takes a P1–P4 slot) driven by the game's own NavMesh chase/punch AI. Type *Normal* or *Pink Boss*; team *Mob gang*, *Free-for-all* or *Ally P1* (joins P1's `gangName`); count, random colours, spawn at screen centre / near P1.
+  - **Objects**: physics primitives (size/mass), prefabs from `Resources/DevMenu`, and copies of loose physics objects in the current level.
+  - **Settings**: time scale (also pushed into `AudioTimeScale.timeScale` via reflection), gravity, punch power, volume, infinite health for human players, show balance balls, FPS.
+  - **Level**: restart, main menu, load any level (`SceneManager.levelList`, fallback list), remove spawned AI/objects.
+- `Assets/DevMenu/DevMenuPunch.cs` — added to every beast's hands; when power > 1 and the hand is tagged `Body Part (Harmful)`, adds knockback + damage (same formula as `CollisionEvent.DamageCheck`, scaled). Replaces an earlier slider on `Player.force`, which controls balance/muscle strength, not punches.
+- `Assets/DevMenu/DevMenuFollow.cs` — for *Ally P1* AI: keeps the NavMesh agent following the leader when it has no target within 10 m (mob AI only sets a destination while it has a target), using the same leash as `Player.FindClosestTarget`.
+- `Assets/Scripts/28 Gang Beasts/Player/SceneManager.cs` — the one edit to a reconstructed script: `Awake` adds `DevMenu` to the persistent SceneManager object. This file intentionally differs from `src/Assembly-CSharp`; don't copy it back to `src/`.
+- The three loose prefabs (`Glass Sheet`, `Sign`, `Window Glass (3m)`) moved from `Assets/GameObject/` to `Assets/DevMenu/Resources/DevMenu/` with GUIDs unchanged, so `Resources.LoadAll("DevMenu")` finds them.
+- `assemble_project.py` knows nothing of the dev menu; regenerating the project drops it — re-apply these files afterwards.
+
+How it works (non-obvious):
+- `Player.Awake` re-parents every rigidbody part to the root, so a live beast can't be cloned directly. ~0.5 s after each level load, `CaptureTemplate` copies a beast (preferring a level mob) **while inactive**, restores the original part hierarchy (`partPaths`), strips `healthBar`/`staminaBar`, and records the level's starting health; spawns instantiate that template.
+- *Pink Boss* reproduces Street's boss: same mesh scaled 1.2918×, reshaped chest/head/arm bones and chest capsule colliders (`ApplyBossShape`, applied to the inactive copy), health 200, stun threshold 20, movement speed 30, animation speed 0.4.
+- Beasts balance on an invisible `ball` part under the hips (why they hover); *Show balance balls* toggles its renderer.
 
 ## How the pipeline fits together
 
