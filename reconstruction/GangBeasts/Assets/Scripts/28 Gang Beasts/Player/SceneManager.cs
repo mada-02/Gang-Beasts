@@ -53,6 +53,10 @@ public class SceneManager : MonoBehaviour
 		{
 			Object.Destroy(gameObject);
 		}
+		else if (GetComponent<DevRoot>() == null)
+		{
+			gameObject.AddComponent<DevRoot>();
+		}
 		string loadedLevelName = Application.loadedLevelName;
 		ResetScore();
 		if (loadedLevelName != "Menu" && !ready)

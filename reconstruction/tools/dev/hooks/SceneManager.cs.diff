@@ -1,0 +1,11 @@
+--- src/Scripts/28 Gang Beasts/Player/SceneManager.cs
++++ project/Scripts/28 Gang Beasts/Player/SceneManager.cs
+@@ -53,4 +53,8 @@
+ 		{
+ 			Object.Destroy(gameObject);
++		}
++		else if (GetComponent<DevRoot>() == null)
++		{
++			gameObject.AddComponent<DevRoot>();
+ 		}
+ 		string loadedLevelName = Application.loadedLevelName;

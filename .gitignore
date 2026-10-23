@@ -17,6 +17,13 @@
 /reconstruction/tools/bin/
 /reconstruction/tools/*/obj/
 
+# Developer branch: generated test output, scratch copies of shipped games, 0.0.2 decompile
+/reconstruction/dev/out/
+/reconstruction/dev/scratch002/
+/reconstruction/decompiled_002/
+/reconstruction/tools/dev/*/bin/
+/reconstruction/tools/dev/*/obj/
+
 # Unity project caches (if a project is assembled elsewhere in the tree)
 Library/
 Temp/
