@@ -191,10 +191,44 @@ def check_classnames():
                     fail("classnames", "MonoBehaviour %s in %s" % (cls, os.path.relpath(path, ASSETS)))
 
 
+DECOMPILED_002 = os.path.join(RECON, "decompiled_002", "Assembly-CSharp")
+LEGACY_002 = os.path.join(DEV, "HardMode", "Legacy002")
+
+
+def check_ports():
+    """Hard Mode's 0.0.2 behaviour code is the decompiled 0.0.2 code: only the class name, the header
+    comment and (CollisionEvent) Health -> HealthAndStamina may differ. Skipped without decompiled_002/."""
+    if not os.path.isdir(DECOMPILED_002):
+        print("  (ports: decompiled_002/ not found, run tools/dev/decompile_002.sh)")
+        return
+    for cls in ("Movement", "Jump", "PunchAndGrab", "CollisionEvent"):
+        original = read_bytes(os.path.join(DECOMPILED_002, cls + ".cs")).decode("utf-8-sig").replace("\r\n", "\n")
+        port = read_bytes(os.path.join(LEGACY_002, cls + "002.cs")).decode("utf-8-sig")
+        port = re.sub(r"\n// .*(\n// .*)*\n\n", "\n", port, count=1)
+        port = port.replace("public class %s002 :" % cls, "public class %s :" % cls, 1)
+        if cls == "CollisionEvent":
+            port = re.sub(r"\bHealthAndStamina\b", "Health", port)
+        if port != original:
+            fail("ports", "%s002.cs is not 0.0.2's %s.cs" % (cls, cls))
+
+
+def check_generated():
+    """Generated/*.cs match a fresh run of gen_data.py. Skipped without the fingerprints in dev/out/fp."""
+    fp2 = os.path.join(RECON, "dev", "out", "fp", "all002.json")
+    fp3 = os.path.join(RECON, "dev", "out", "fp", "all003.json")
+    if not (os.path.isfile(fp2) and os.path.isfile(fp3)):
+        print("  (generated: run fingerprint.py 002/003 -o dev/out/fp/all00X.json to check)")
+        return
+    r = subprocess.run([sys.executable, "-I", os.path.join(HERE, "gen_data.py"), fp2, fp3, "--check"], capture_output=True, text=True)
+    if r.returncode != 0:
+        fail("generated", "Generated/*.cs differ from gen_data.py's output: " + (r.stdout + r.stderr).strip())
+
+
 def main():
     record = "--record-hooks" in sys.argv[1:]
     checks = [("protected", check_protected), ("hooks", lambda: check_hooks(record)), ("metas", check_metas),
-              ("encoding", check_encoding), ("classnames", check_classnames)]
+              ("encoding", check_encoding), ("classnames", check_classnames), ("ports", check_ports),
+              ("generated", check_generated)]
     for name, check in checks:
         before = len(failures)
         check()

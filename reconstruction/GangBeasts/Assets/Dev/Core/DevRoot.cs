@@ -14,6 +14,9 @@ public class DevRoot : MonoBehaviour
 {
 	public static DevRoot instance;
 
+	// A level was loaded: before its beasts are registered (modules drop per-level state here).
+	public static event DevEvent LevelStarting;
+
 	// After a level load, once the template is captured and the level's beasts are registered.
 	public static event DevEvent LevelReady;
 
@@ -29,10 +32,13 @@ public class DevRoot : MonoBehaviour
 		DevSpawner.Init();
 		Morph.Init();
 		FreeCam.Init();
+		HardMode.Init();
 		gameObject.AddComponent<DevWorld>();
 		gameObject.AddComponent<DevMenu>();
 		gameObject.AddComponent<FreeCamRestore>();
 		gameObject.AddComponent<FreeCamApply>();
+		gameObject.AddComponent<HardPlayerPre>();
+		gameObject.AddComponent<HardPlayerPost>();
 		if (DevTestRunner.Requested())
 		{
 			gameObject.AddComponent<DevTestRunner>();
@@ -59,6 +65,10 @@ public class DevRoot : MonoBehaviour
 		BeastRegistry.LevelLoaded();
 		BeastFactory.LevelLoaded();
 		DevProps.LevelLoaded();
+		if (LevelStarting != null)
+		{
+			LevelStarting();
+		}
 		BeastFactory.Capture();
 		BeastRegistry.Sweep();
 		if (LevelReady != null)
