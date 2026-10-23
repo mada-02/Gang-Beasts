@@ -88,6 +88,10 @@ public class Player : MonoBehaviour
 
 	public State state;
 
+	// Developer branch: set while a dev AI brain drives this mob, so the built-in mob AI below stands down.
+	[System.NonSerialized]
+	public bool devBrain;
+
 	private void Awake()
 	{
 		applyedForce = force;
@@ -167,7 +171,7 @@ public class Player : MonoBehaviour
 	{
 		if (state != State.Stunned && state != State.Dead)
 		{
-			if (mob)
+			if (mob && !devBrain)
 			{
 				FindClosestTarget();
 				if (target != null)
@@ -423,6 +427,10 @@ public class Player : MonoBehaviour
 			if (target.state == State.Dead)
 			{
 				taunt = true;
+			}
+			else if (DevHooks.fixMobTaunt)
+			{
+				taunt = false;
 			}
 		}
 		else

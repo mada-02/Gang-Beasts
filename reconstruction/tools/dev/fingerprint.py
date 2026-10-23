@@ -115,6 +115,12 @@ class Reader:
             raise LayoutError("bad array count %d at %d" % (n, self.p))
         return n
 
+    def skip(self, item_size):
+        """Skips an array of fixed-size items (count first). Not `p += size * count()`: Python reads p
+        before count() moves it, which loses the count's own 4 bytes."""
+        n = self.count()
+        self.p += item_size * n
+
     def done(self, what):
         if self.p != len(self.d):
             raise LayoutError("%s: read %d of %d bytes" % (what, self.p, len(self.d)))
@@ -281,6 +287,101 @@ def read_collider(r, class_id):
         c["m_Mesh"] = r.pptr()
     r.done(c["type"])
     return c
+
+
+def read_packed_bits(r, has_range):
+    r.u32()  # m_NumItems
+    if has_range:
+        r.f32()
+        r.f32()
+    n = r.count()
+    r.p += n
+    r.align()
+    r.u8()  # m_BitSize
+    r.align()
+
+
+def read_mesh(r):
+    """Unity 4.3 Mesh (serialized version 8): name, positions and triangle indices."""
+    name = r.string()
+    submeshes = []
+    for _ in range(r.count()):
+        first_byte, index_count, topology, first_vertex, vertex_count = r.u32(), r.u32(), r.i32(), r.u32(), r.u32()
+        r.p += 24  # local AABB
+        submeshes.append((first_byte, index_count, topology))
+    r.skip(40)  # blend shape vertices (vertex, normal, tangent, index)
+    for _ in range(r.count()):  # blend shapes
+        r.p += 8
+        r.bool()
+        r.bool()
+        r.align()
+    for _ in range(r.count()):  # blend shape channels
+        r.string()
+        r.p += 12
+    r.skip(4)  # full weights
+    r.skip(64)  # bind poses
+    r.skip(4)  # bone name hashes
+    r.u32()  # root bone name hash
+    r.u8()
+    r.u8()
+    r.bool()
+    r.bool()
+    r.bool()
+    r.align()
+    index_buffer = r.d[r.p + 4:r.p + 4 + struct.unpack_from("<i", r.d, r.p)[0]]
+    r.p += 4 + len(index_buffer)
+    r.align()
+    r.skip(32)  # skin
+    channels_mask = r.u32()
+    vertex_count = r.u32()
+    channels = [(r.u8(), r.u8(), r.u8(), r.u8()) for _ in range(r.count())]
+    streams = [(r.u32(), r.u32(), r.u8(), r.u8(), r.u16()) for _ in range(r.count())]  # 4, with a count
+    data = r.d[r.p + 4:r.p + 4 + struct.unpack_from("<i", r.d, r.p)[0]]
+    r.p += 4 + len(data)
+    r.align()
+    for has_range in (True, True, True, True, True, False, False, False, False, False, False):
+        read_packed_bits(r, has_range)
+    r.p += 24  # m_LocalAABB
+    r.i32()  # m_MeshUsageFlags
+    r.done("Mesh")
+    stream, offset, fmt, dim = channels[0]
+    if fmt != 0 or dim != 3:
+        raise LayoutError("mesh %s: positions not float3" % name)
+    stride = streams[stream][2]
+    base = streams[stream][1]
+    vertices = [list(struct.unpack_from("<fff", data, base + i * stride + offset)) for i in range(vertex_count)]
+    indices = list(struct.unpack_from("<%dH" % (len(index_buffer) // 2), index_buffer, 0))
+    triangles = []
+    for first_byte, index_count, topology in submeshes:
+        if topology != 0:
+            raise LayoutError("mesh %s: non-triangle submesh" % name)
+        triangles += indices[first_byte // 2:first_byte // 2 + index_count]
+    return {"name": name, "vertices": vertices, "triangles": triangles}
+
+
+def hitbox_meshes_002(level_name="Street"):
+    """name -> mesh of every MeshCollider on a 0.0.2 beast part in that level."""
+    names = levels_002()
+    sf = SerializedFile.open(os.path.join(GB002, "level%d" % (names.index("Assets/Scenes/%s.unity" % level_name) - 1)))
+    gos = {pid: read_gameobject(sf.reader(pid)) for pid in sf.of_class(1)}
+    transforms = {pid: read_transform(sf.reader(pid)) for pid in sf.of_class(4)}
+    meshes = {}
+    for go_pid, go in gos.items():
+        scripts = [read_monobehaviour(sf, sf.reader(ptr[1])) for cid, ptr in go["components"] if cid == 114]
+        if not any(s["class"] == "Player" for s in scripts):
+            continue
+        stack = [ptr[1] for cid, ptr in go["components"] if cid == 4]
+        while stack:
+            t = transforms[stack.pop()]
+            stack.extend(c[1] for c in t["children"])
+            for cid, ptr in gos[t["go"][1]]["components"]:
+                if cid == 64:
+                    c = read_collider(sf.reader(ptr[1]), 64)
+                    target = sf.resolve(c["m_Mesh"])
+                    if target is not None:
+                        mesh = read_mesh(target[0].reader(target[1]))
+                        meshes[mesh["name"]] = mesh
+    return meshes
 
 
 def read_physic_material(r):

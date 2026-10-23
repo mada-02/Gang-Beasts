@@ -13,6 +13,10 @@ MONO="$UNITY_DATA/Mono/bin/mono.exe"
 PROFILE="$UNITY_DATA/Mono/lib/mono/unity"
 ASSETS="$HERE/GangBeasts/Assets"
 LIB="$HERE/GangBeasts/Library/ScriptAssemblies"
+# Unity sometimes leaves ScriptAssemblies empty after a batch build; the built player has the same DLLs.
+if [ ! -f "$LIB/Assembly-CSharp-firstpass.dll" ]; then
+  LIB="$HERE/dev/out/player/GangBeastsDev_Data/Managed"
+fi
 OUT="$HERE/dev/out/compile"
 mkdir -p "$OUT"
 

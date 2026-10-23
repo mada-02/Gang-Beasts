@@ -8,6 +8,8 @@ using UnityEngine;
 //             -devbuildout <path\GangBeastsDev.exe> [-devbuildrelease]
 // Builds every enabled scene in EditorBuildSettings order (Intro first, as in the game) as a
 // development player unless -devbuildrelease is given. Exits 0 on success, 1 on failure.
+// -devbuildnointro leaves Intro out, so the player starts in Menu: Intro moves on to Menu from a
+// CameraFade callback, and CameraFade only advances in OnGUI, which never runs in batch mode.
 public static class DevBuild
 {
 	public static void BuildPlayer()
@@ -22,7 +24,7 @@ public static class DevBuild
 		List<string> scenes = new List<string>();
 		foreach (EditorBuildSettingsScene scene in EditorBuildSettings.scenes)
 		{
-			if (scene.enabled)
+			if (scene.enabled && !(HasArg("-devbuildnointro") && scene.path.EndsWith("/Intro.unity")))
 			{
 				scenes.Add(scene.path);
 			}

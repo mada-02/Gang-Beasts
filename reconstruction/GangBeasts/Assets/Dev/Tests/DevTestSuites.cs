@@ -11,6 +11,8 @@ public static class DevTestSuites
 		{
 			all = new List<DevTestSuite>();
 			all.Add(SmokeTests.Suite());
+			all.Add(CoreTests.Suite());
+			all.Add(DiagTests.Suite());
 		}
 		foreach (DevTestSuite suite in all)
 		{

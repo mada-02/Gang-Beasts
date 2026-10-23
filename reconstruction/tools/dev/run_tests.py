@@ -52,13 +52,25 @@ def build(release, exe):
         sys.exit("The Unity editor has this project open; close it before a batch build.")
     os.makedirs(PLAYER_DIR, exist_ok=True)
     log = os.path.join(OUT, "build.log")
-    cmd = [find_unity(), "-batchmode", "-quit", "-projectPath", PROJECT, "-executeMethod", "DevBuild.BuildPlayer",
-           "-devbuildout", exe, "-logFile", log]
+    # Without Intro: headless players never leave it (its move to Menu waits on CameraFade, an OnGUI fade).
+    # -nographics: with the display asleep or the session locked, the editor cannot create its Direct3D
+    # window ("device lost") and quits; shaders are compiled offline either way.
+    cmd = [find_unity(), "-batchmode", "-nographics", "-quit", "-projectPath", PROJECT, "-executeMethod",
+           "DevBuild.BuildPlayer", "-devbuildout", exe, "-logFile", log, "-devbuildnointro"]
     if release:
         cmd.append("-devbuildrelease")
     print("building", exe)
     started = datetime.datetime.now()
+    if os.path.isfile(exe):
+        os.remove(exe)  # never run a stale player after a failed build
     code = subprocess.call(cmd)
+    # Unity 4.3 can compile before importing scripts added since the last run, so a new file that an
+    # edited one refers to fails the first compile; by then the file is imported. Retry once.
+    if code != 0 and os.path.isfile(log):
+        with open(log, encoding="utf-8", errors="replace") as f:
+            if "Scripts have compiler errors" in f.read():
+                print("compile failed on the first pass (new scripts not imported yet?); retrying once")
+                code = subprocess.call(cmd)
     print("build exit", code, "in", datetime.datetime.now() - started)
     if code != 0 or not os.path.isfile(exe):
         if os.path.isfile(log):

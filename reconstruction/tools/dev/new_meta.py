@@ -18,7 +18,7 @@ OTHER = "fileFormatVersion: 2\nguid: {guid}\nDefaultImporter:\n  userData: \n"
 
 def write_meta(path, order=0):
     meta = path + ".meta"
-    if os.path.exists(meta):
+    if os.path.exists(meta) or path.endswith(".meta"):
         return
     if os.path.isdir(path):
         text = FOLDER
@@ -39,6 +39,9 @@ def main(args):
         del args[i:i + 2]
     for arg in args:
         path = os.path.abspath(arg)
+        # A meta for a meta (X.meta.meta) made Unity 4.3's auto-refresh crash the editor.
+        if path.endswith(".meta"):
+            sys.exit("refusing to make a meta for a meta: " + arg)
         # Every enclosing folder up to Assets needs a meta too.
         parent = os.path.dirname(path)
         chain = []

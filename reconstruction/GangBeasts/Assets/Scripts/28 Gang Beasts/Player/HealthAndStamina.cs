@@ -147,7 +147,10 @@ public class HealthAndStamina : MonoBehaviour
 						runOnce = true;
 						GameObject gameObject = GameObject.FindWithTag("Scene Manager");
 						SceneManager component = gameObject.GetComponent<SceneManager>();
-						component.score[player.player]--;
+						if (!DevHooks.fixScoreIndex || player.player < component.score.Length)
+						{
+							component.score[player.player]--;
+						}
 					}
 				}
 			}

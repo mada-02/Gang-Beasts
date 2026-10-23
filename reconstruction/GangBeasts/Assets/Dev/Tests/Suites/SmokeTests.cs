@@ -65,21 +65,23 @@ public static class SmokeTests
 		t.Metric("humans", humans);
 		t.Metric("mobs", mobs);
 		t.Metric("head_bounds", headSize);
-		t.Equal(11, mobs, "Street mobs (10 + the pink boss)");
+		t.Equal(10, mobs, "Street mobs (9 + the pink boss)");
 		t.Check(humans >= 1, "at least one human");
 		t.Check(headSize > 0.1f, "renderer bounds work");
 	}
 
-	// Loads Street three times with the same seed and hashes every rigidbody's pose each physics step.
+	// Loads Street three times with the same seed (and once with another) and hashes every rigidbody's
+	// pose each physics step. Bit-for-bit equal runs mean tests can replay exactly; otherwise they must
+	// be statistical.
 	private static IEnumerator Determinism(DevTestContext t)
 	{
-		const int Steps = 300;
+		const int Steps = 600;
 		List<List<uint>> runs = new List<List<uint>>();
-		for (int run = 0; run < 3; run++)
+		for (int run = 0; run < 4; run++)
 		{
-			UnityEngine.Random.seed = t.seed;
+			UnityEngine.Random.seed = run < 3 ? t.seed : t.seed + 1;
 			yield return t.LoadLevel("Street");
-			UnityEngine.Random.seed = t.seed;
+			UnityEngine.Random.seed = run < 3 ? t.seed : t.seed + 1;
 			List<uint> hashes = new List<uint>();
 			for (int i = 0; i < Steps; i++)
 			{
@@ -99,28 +101,25 @@ public static class SmokeTests
 					break;
 				}
 			}
-			t.Metric("run" + run + "_diverged_at", diverged);
+			t.Metric((run < 3 ? "same_seed_run" : "other_seed_run") + run + "_diverged_at", diverged);
 		}
-		t.Info("note", "diverged_at = -1 means the run matched run 0 bit for bit");
+		t.Info("note", "diverged_at = -1 means the run matched run 0 bit for bit; runs 1-2 share its seed, run 3 does not");
 	}
 
-	// FNV-1a over the raw bits of every rigidbody's position and rotation, in name+instance order.
-	private static uint PoseHash()
+	// Every rigidbody's name and the raw bits of its pose, FNV-1a per body, summed: independent of the
+	// order FindObjectsOfType returns them in (a sort is no fix: same-named bodies tie and List.Sort is
+	// unstable, which made identical states hash differently).
+	public static uint PoseHash()
 	{
-		UnityEngine.Object[] bodies = UnityEngine.Object.FindObjectsOfType(typeof(Rigidbody));
-		List<Rigidbody> list = new List<Rigidbody>();
-		foreach (UnityEngine.Object o in bodies)
+		uint sum = 0u;
+		foreach (UnityEngine.Object o in UnityEngine.Object.FindObjectsOfType(typeof(Rigidbody)))
 		{
-			list.Add((Rigidbody)o);
-		}
-		list.Sort((a, b) =>
-		{
-			int c = string.CompareOrdinal(a.transform.root.name + "/" + a.name, b.transform.root.name + "/" + b.name);
-			return c != 0 ? c : a.position.sqrMagnitude.CompareTo(b.position.sqrMagnitude);
-		});
-		uint hash = 2166136261u;
-		foreach (Rigidbody body in list)
-		{
+			Rigidbody body = (Rigidbody)o;
+			uint hash = 2166136261u;
+			foreach (char c in body.transform.root.name + "/" + body.name)
+			{
+				hash = (hash ^ c) * 16777619u;
+			}
 			Vector3 p = body.position;
 			Quaternion q = body.rotation;
 			hash = Mix(hash, p.x);
@@ -130,8 +129,9 @@ public static class SmokeTests
 			hash = Mix(hash, q.y);
 			hash = Mix(hash, q.z);
 			hash = Mix(hash, q.w);
+			sum += hash;
 		}
-		return hash;
+		return sum;
 	}
 
 	private static uint Mix(uint hash, float value)

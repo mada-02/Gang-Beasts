@@ -136,6 +136,9 @@ def check_metas():
             if not name.endswith(".meta"):
                 continue
             path = os.path.join(dirpath, name)
+            if name.endswith(".meta.meta"):
+                # Unity 4.3's auto-refresh crashed the editor on one of these.
+                fail("metas", "meta of a meta: " + os.path.relpath(path, ASSETS))
             match = GUID.search(read_bytes(path))
             if not match:
                 fail("metas", "no guid in " + os.path.relpath(path, ASSETS))
