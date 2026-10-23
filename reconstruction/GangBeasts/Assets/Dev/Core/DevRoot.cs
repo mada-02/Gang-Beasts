@@ -28,8 +28,11 @@ public class DevRoot : MonoBehaviour
 		instance = this;
 		DevSpawner.Init();
 		Morph.Init();
+		FreeCam.Init();
 		gameObject.AddComponent<DevWorld>();
 		gameObject.AddComponent<DevMenu>();
+		gameObject.AddComponent<FreeCamRestore>();
+		gameObject.AddComponent<FreeCamApply>();
 		if (DevTestRunner.Requested())
 		{
 			gameObject.AddComponent<DevTestRunner>();
