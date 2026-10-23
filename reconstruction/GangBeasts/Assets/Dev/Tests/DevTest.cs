@@ -118,6 +118,13 @@ public class DevTestContext
 	public IEnumerator LoadLevel(string level)
 	{
 		int loads = DevTestRunner.levelLoads;
+		if (DevTestUtil.pendingPlayers >= 0)
+		{
+			// Resume after Update so no SceneManager.Update sees the new player count before the load
+			// rebuilds the scoreboard (it would index past the old one).
+			yield return null;
+			DevTestUtil.ApplyPendingPlayers();
+		}
 		Application.LoadLevel(level);
 		while (DevTestRunner.levelLoads == loads)
 		{

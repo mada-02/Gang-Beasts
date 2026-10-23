@@ -173,20 +173,33 @@ public static class DevTestUtil
 		return max;
 	}
 
-	// Sets SceneManager.totalPlayers before a level loads (the Menu's SceneManager persists and decides
-	// how many human slots each level keeps).
+	// Human slots for the next level the tests load (-1: leave as is). Applied in the same frame as
+	// Application.LoadLevel: the level load rebuilds the scoreboard to the new size, while a resized score
+	// array with the old scoreboard made SceneManager.UpdateScoreboard index past it.
+	public static int pendingPlayers = -1;
+
 	public static void SetPlayers(int count)
 	{
+		pendingPlayers = count;
+	}
+
+	public static void ApplyPendingPlayers()
+	{
+		if (pendingPlayers < 0)
+		{
+			return;
+		}
 		GameObject go = GameObject.FindWithTag("Scene Manager");
 		if (go != null)
 		{
 			SceneManager sm = go.GetComponent<SceneManager>();
-			sm.totalPlayers = count;
-			sm.score = new int[count];
-			for (int i = 0; i < count; i++)
+			sm.totalPlayers = pendingPlayers;
+			sm.score = new int[pendingPlayers];
+			for (int i = 0; i < pendingPlayers; i++)
 			{
 				sm.score[i] = sm.startingLives;
 			}
 		}
+		pendingPlayers = -1;
 	}
 }

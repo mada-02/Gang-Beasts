@@ -14,6 +14,7 @@ public static class DevTestSuites
 			all.Add(CoreTests.Suite());
 			all.Add(DiagTests.Suite());
 			all.Add(MenuTests.Suite());
+			all.Add(MorphTests.Suite());
 		}
 		foreach (DevTestSuite suite in all)
 		{

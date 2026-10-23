@@ -23,9 +23,12 @@ public class DevTestRunner : MonoBehaviour
 	// Errors and exceptions logged since the player started (tests can diff it around an action).
 	public static int ErrorCount;
 
-	// Errors 0.0.3 itself logs (diag/vanilla_errors: each level loaded and left alone for 5 s). Only
-	// ProBuilder's, when Menu loads; anything else logged during a test fails it.
-	public static readonly string[] vanillaErrors = { "pb_Object.GenerateSubmeshes" };
+	// Errors 0.0.3 itself logs; anything else logged during a test fails it.
+	// - ProBuilder's, when Menu loads (diag/vanilla_errors: each level loaded and left alone for 5 s).
+	// - SceneManager.ShowScore: CreateScoreboard schedules it 6 s ahead, and when the level changes to
+	//   one that builds no scoreboard (Menu) before then, it touches the destroyed GUITexts. Players only
+	//   meet it by leaving a level within 6 s; tests change levels all the time.
+	public static readonly string[] vanillaErrors = { "pb_Object.GenerateSubmeshes", "SceneManager.ShowScore" };
 
 	private StreamWriter output;
 

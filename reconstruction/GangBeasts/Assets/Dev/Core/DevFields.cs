@@ -83,6 +83,55 @@ public static class DevFields
 		}
 	}
 
+	// The settings of every beast component, to put back later (Morph's revert).
+	public static Dictionary<Type, object[]> Snapshot(Beast beast)
+	{
+		Dictionary<Type, object[]> snapshot = new Dictionary<Type, object[]>();
+		foreach (Component c in Components(beast.gameObject))
+		{
+			string[] names = settings[c.GetType()];
+			object[] values = new object[names.Length];
+			for (int i = 0; i < names.Length; i++)
+			{
+				values[i] = c.GetType().GetField(names[i], BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic).GetValue(c);
+			}
+			snapshot[c.GetType()] = values;
+		}
+		return snapshot;
+	}
+
+	public static void Restore(Dictionary<Type, object[]> snapshot, GameObject beast)
+	{
+		foreach (Component c in Components(beast))
+		{
+			object[] values;
+			if (!snapshot.TryGetValue(c.GetType(), out values))
+			{
+				continue;
+			}
+			string[] names = settings[c.GetType()];
+			for (int i = 0; i < names.Length; i++)
+			{
+				c.GetType().GetField(names[i], BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic).SetValue(c, values[i]);
+			}
+		}
+	}
+
+	// The beast components with settings (Targeting sits on the chest's targetFinder child).
+	private static List<Component> Components(GameObject beast)
+	{
+		List<Component> list = new List<Component>();
+		foreach (Type t in settings.Keys)
+		{
+			Component c = t == typeof(Targeting) ? beast.GetComponentInChildren(t) : beast.GetComponent(t);
+			if (c != null)
+			{
+				list.Add(c);
+			}
+		}
+		return list;
+	}
+
 	// Fields of the listed types that are in neither list (should be empty).
 	public static List<string> Unclassified()
 	{

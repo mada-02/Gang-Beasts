@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public delegate void BeastConfigure(GameObject inactiveCopy);
+
 // What to spawn: body, side, colour and starting health. Where comes from the caller.
 public class SpawnSpec
 {
@@ -302,6 +304,13 @@ public static class BeastFactory
 	// shapeStats: take the new body's stats (health, stun threshold, gait) instead of the original's.
 	public static Beast Rebuild(Beast original, BeastBody body, bool shapeStats)
 	{
+		return Rebuild(original, body, shapeStats, null);
+	}
+
+	// configure runs on the inactive copy last, before it is placed and switched on: its health then is
+	// taken as the new maximum (the health share carries over).
+	public static Beast Rebuild(Beast original, BeastBody body, bool shapeStats, BeastConfigure configure)
+	{
 		if (original == null || original.player == null || template == null)
 		{
 			return null;
@@ -338,6 +347,10 @@ public static class BeastFactory
 		{
 			stats.health = maxHealth;
 			stats.runOnce = original.stats != null && original.stats.runOnce;
+		}
+		if (configure != null)
+		{
+			configure(copy);
 		}
 		copy.name = op.name;
 		Transform chest = op.part["chest"];

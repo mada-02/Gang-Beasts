@@ -27,6 +27,7 @@ public class DevRoot : MonoBehaviour
 	{
 		instance = this;
 		DevSpawner.Init();
+		Morph.Init();
 		gameObject.AddComponent<DevWorld>();
 		gameObject.AddComponent<DevMenu>();
 		if (DevTestRunner.Requested())
