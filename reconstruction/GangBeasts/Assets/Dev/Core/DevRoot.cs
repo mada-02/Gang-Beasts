@@ -26,6 +26,9 @@ public class DevRoot : MonoBehaviour
 	private void Awake()
 	{
 		instance = this;
+		DevSpawner.Init();
+		gameObject.AddComponent<DevWorld>();
+		gameObject.AddComponent<DevMenu>();
 		if (DevTestRunner.Requested())
 		{
 			gameObject.AddComponent<DevTestRunner>();
@@ -51,6 +54,7 @@ public class DevRoot : MonoBehaviour
 		levelsStarted++;
 		BeastRegistry.LevelLoaded();
 		BeastFactory.LevelLoaded();
+		DevProps.LevelLoaded();
 		BeastFactory.Capture();
 		BeastRegistry.Sweep();
 		if (LevelReady != null)

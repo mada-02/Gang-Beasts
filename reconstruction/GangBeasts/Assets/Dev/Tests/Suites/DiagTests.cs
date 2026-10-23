@@ -8,7 +8,22 @@ public static class DiagTests
 	public static DevTestSuite Suite()
 	{
 		return new DevTestSuite("diag")
-			.Add("gondola_spawn_fling", GondolaSpawnFling);
+			.Add("gondola_spawn_fling", GondolaSpawnFling)
+			.Add("vanilla_errors", VanillaErrors);
+	}
+
+	// What the game itself logs as errors when each level loads and runs for 5 s untouched: the baseline
+	// every "no new errors" check is held against (the runner records log errors per test).
+	private static IEnumerator VanillaErrors(DevTestContext t)
+	{
+		t.allowLoggedErrors = true;
+		foreach (string level in new string[] { "Menu", "Tutorial", "Sandbox", "Ring", "Grind", "Gondola", "Trucks", "Incinerator", "Wheel", "Subway", "Street" })
+		{
+			int before = DevTestRunner.ErrorCount;
+			yield return t.LoadLevel(level);
+			yield return t.Steps(500);
+			t.Metric(level + "_errors", DevTestRunner.ErrorCount - before);
+		}
 	}
 
 	// Spawned beasts in Gondola were flung (60-70 m/s). Per spot: the surface under it, whether that

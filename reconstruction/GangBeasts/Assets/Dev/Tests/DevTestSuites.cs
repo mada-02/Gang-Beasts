@@ -13,6 +13,7 @@ public static class DevTestSuites
 			all.Add(SmokeTests.Suite());
 			all.Add(CoreTests.Suite());
 			all.Add(DiagTests.Suite());
+			all.Add(MenuTests.Suite());
 		}
 		foreach (DevTestSuite suite in all)
 		{

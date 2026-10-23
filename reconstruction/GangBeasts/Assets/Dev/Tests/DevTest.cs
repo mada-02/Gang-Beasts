@@ -45,6 +45,10 @@ public class DevTestContext
 
 	public readonly List<KeyValuePair<string, string>> info = new List<KeyValuePair<string, string>>();
 
+	// Errors the game logs during a test fail it (see DevTestRunner.vanillaErrors for the known ones),
+	// unless the test is about observing them.
+	public bool allowLoggedErrors;
+
 	public DevTestContext(string suite, string name, int seed)
 	{
 		this.suite = suite;

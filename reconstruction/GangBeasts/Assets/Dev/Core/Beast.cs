@@ -37,6 +37,11 @@ public class Beast
 	// Size relative to a normal beast (the root's uniform scale).
 	public float size = 1f;
 
+	// Dev AI side, for the menu ("" for level beasts), and the human it stays with (allies).
+	public string team = "";
+
+	public Beast leader;
+
 	public Beast(int id, Player player)
 	{
 		this.id = id;

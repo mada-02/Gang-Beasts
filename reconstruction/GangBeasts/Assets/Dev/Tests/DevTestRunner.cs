@@ -20,6 +20,13 @@ public class DevTestRunner : MonoBehaviour
 
 	private static readonly List<string> logErrors = new List<string>();
 
+	// Errors and exceptions logged since the player started (tests can diff it around an action).
+	public static int ErrorCount;
+
+	// Errors 0.0.3 itself logs (diag/vanilla_errors: each level loaded and left alone for 5 s). Only
+	// ProBuilder's, when Menu loads; anything else logged during a test fails it.
+	public static readonly string[] vanillaErrors = { "pb_Object.GenerateSubmeshes" };
+
 	private StreamWriter output;
 
 	private string[] suiteNames;
@@ -88,6 +95,7 @@ public class DevTestRunner : MonoBehaviour
 	{
 		if (type == LogType.Error || type == LogType.Exception || type == LogType.Assert)
 		{
+			ErrorCount++;
 			logErrors.Add(type + ": " + condition + (string.IsNullOrEmpty(stackTrace) ? "" : "\n" + stackTrace));
 		}
 	}
@@ -162,6 +170,23 @@ public class DevTestRunner : MonoBehaviour
 				continue;
 			}
 			yield return top.Current;
+		}
+		int unexpected = 0;
+		foreach (string e in logErrors)
+		{
+			bool known = false;
+			foreach (string v in vanillaErrors)
+			{
+				known |= e.Contains(v);
+			}
+			if (!known)
+			{
+				unexpected++;
+			}
+		}
+		if (unexpected > 0 && !t.allowLoggedErrors)
+		{
+			t.failures.Add(unexpected + " error(s) logged during the test (see errors)");
 		}
 		string status = crash != null ? "error" : (t.failures.Count > 0 ? "fail" : "pass");
 		if (status != "pass")
