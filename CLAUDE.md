@@ -8,11 +8,11 @@ A source reconstruction of **Gang Beasts 0.0.3** (Unity 4.3.2f1, Windows). The g
 
 - `gang_beasts_0_0_3_windows/` — the shipped game. **Read-only ground truth; never modify.** Work on scratch copies elsewhere. Not in git.
 - `UnitySetup-4.3.2/` — (not in git) Unity 4.3.2 editor + its Mono (`Data/Mono/bin/mono.exe`, compilers in `Data/Mono/lib/mono/unity/{smcs,us}.exe`).
-- `reconstruction/` — all work: `src/<Assembly>/` (canonical sources), `layout/` (path maps), `tools/`, `build/`, `proof/`, `export/` (AssetRipper output + `ShaderText/`), `GangBeasts/` (assembled Unity project). `build/`, `decompiled/`, `export/`, `tools/bin/` and `GangBeasts/{Library,Temp}` are generated and git-ignored; `GangBeasts/` itself (assets + scripts) is committed. Keep its scripts identical to `src/` (copy edits both ways) — except for the `additional`-branch changes below.
+- `reconstruction/` — all work: `src/<Assembly>/` (canonical sources), `layout/` (path maps), `tools/`, `build/`, `proof/`, `export/` (AssetRipper output + `ShaderText/`), `GangBeasts/` (assembled Unity project). `build/`, `decompiled/`, `export/`, `tools/bin/` and `GangBeasts/{Library,Temp}` are generated and git-ignored; `GangBeasts/` itself (assets + scripts) is committed. Keep its scripts identical to `src/` (copy edits both ways) — except for the `additional`/`developer`-branch changes below.
 
 ## Status (keep updated)
 
-**All functions match.** Every method in all four script assemblies (Assembly-CSharp-firstpass, Assembly-UnityScript-firstpass, Assembly-UnityScript, Assembly-CSharp) compiles to IL identical to the shipped game, and each rebuilt DLL is byte-identical to the original apart from the PE `TimeDateStamp` and module MVID. `ildiff dist` reports distance 0 for every method. Re-check with `prove_all.sh` / `ildiff dist` (below). This holds on both branches: the `additional` branch's dev menu never touches `src/`.
+**All functions match.** Every method in all four script assemblies (Assembly-CSharp-firstpass, Assembly-UnityScript-firstpass, Assembly-UnityScript, Assembly-CSharp) compiles to IL identical to the shipped game, and each rebuilt DLL is byte-identical to the original apart from the PE `TimeDateStamp` and module MVID. `ildiff dist` reports distance 0 for every method. Re-check with `prove_all.sh` / `ildiff dist` (below). This holds on every branch: the `additional` and `developer` dev menus never touch `src/` (`tools/dev/guard.py` checks it on `developer`).
 
 ## Commands (run from `reconstruction/`, Git Bash)
 
@@ -31,30 +31,50 @@ python -I tools/assemble_project.py <new-out-dir>                   # build the 
 
 The .NET tools (`tools/{ildiff,relayout,autofix,cs2us}`) are rebuilt with `dotnet build -c Release -o ../bin/<name>`; `ildiff` and `autofix` share `tools/ilmodel/IlModel.cs`. REA CLI: `npx -y rea-agents@6.7.0 compare-managed-members <orig> <rebuilt> --format json`.
 
-## Branches and the F12 dev menu (`additional` branch only)
+## Branches
 
-This CLAUDE.md is the same on both branches. **The dev menu exists only on `additional`**; if you're on `main`, none of the files below are present. Check with `git branch --show-current`.
+Check with `git branch --show-current`. Only `main`'s Unity project is identical to `src/`.
 
-- `main` — the pure 1:1 reconstruction. The Unity project's scripts are identical to `src/`.
-- `additional` — `main` plus a sandbox dev menu.
+- `main` — the pure 1:1 reconstruction.
+- `additional` — `main` plus the first sandbox dev menu (`Assets/DevMenu/`, one hook in `SceneManager.Awake`). Kept as it was; superseded by `developer`.
+- `developer` — `main` plus the revamped developer layer in `reconstruction/GangBeasts/Assets/Dev/` and its tooling in `reconstruction/tools/dev/` and `reconstruction/dev/`. Described below.
 
-The `additional` branch adds a sandbox dev menu **only to the Unity project** (`reconstruction/GangBeasts/Assets`); `src/`, `layout/`, `tools/` and `proof/` are untouched, so the byte-exact proof still applies to `src/`. Branch-only differences:
+## The `developer` branch
 
-- `Assets/DevMenu/DevMenu.cs` — IMGUI window toggled with **F12** (`toggleKey`). Tabs:
-  - **AI**: spawns copies of a level beast as mobs (`Player.mob = true`, `player = 4` so it never takes a P1–P4 slot) driven by the game's own NavMesh chase/punch AI. Type *Normal* or *Pink Boss*; team *Mob gang*, *Free-for-all* or *Ally P1* (joins P1's `gangName`); count, random colours, spawn at screen centre / near P1.
-  - **Objects**: physics primitives (size/mass), prefabs from `Resources/DevMenu`, and copies of loose physics objects in the current level.
-  - **Settings**: time scale (also pushed into `AudioTimeScale.timeScale` via reflection), gravity, punch power, volume, infinite health for human players, show balance balls, FPS.
-  - **Level**: restart, main menu, load any level (`SceneManager.levelList`, fallback list), remove spawned AI/objects.
-- `Assets/DevMenu/DevMenuPunch.cs` — added to every beast's hands; when power > 1 and the hand is tagged `Body Part (Harmful)`, adds knockback + damage (same formula as `CollisionEvent.DamageCheck`, scaled). Replaces an earlier slider on `Player.force`, which controls balance/muscle strength, not punches.
-- `Assets/DevMenu/DevMenuFollow.cs` — for *Ally P1* AI: keeps the NavMesh agent following the leader when it has no target within 10 m (mob AI only sets a destination while it has a target), using the same leash as `Player.FindClosestTarget`.
-- `Assets/Scripts/28 Gang Beasts/Player/SceneManager.cs` — the one edit to a reconstructed script: `Awake` adds `DevMenu` to the persistent SceneManager object. This file intentionally differs from `src/Assembly-CSharp`; don't copy it back to `src/`.
-- The three loose prefabs (`Glass Sheet`, `Sign`, `Window Glass (3m)`) moved from `Assets/GameObject/` to `Assets/DevMenu/Resources/DevMenu/` with GUIDs unchanged, so `Resources.LoadAll("DevMenu")` finds them.
-- `assemble_project.py` knows nothing of the dev menu; regenerating the project drops it — re-apply these files afterwards.
+F12 opens the dev menu (IMGUI; tabs AI, Player, Objects, World, Level, Debug, Camera). `src/`, `layout/`, `proof/` and the existing `tools/` are untouched (`tools/dev/guard.py` checks it).
 
-How it works (non-obvious):
-- `Player.Awake` re-parents every rigidbody part to the root, so a live beast can't be cloned directly. ~0.5 s after each level load, `CaptureTemplate` copies a beast (preferring a level mob) **while inactive**, restores the original part hierarchy (`partPaths`), strips `healthBar`/`staminaBar`, and records the level's starting health; spawns instantiate that template.
-- *Pink Boss* reproduces Street's boss: same mesh scaled 1.2918×, reshaped chest/head/arm bones and chest capsule colliders (`ApplyBossShape`, applied to the inactive copy), health 200, stun threshold 20, movement speed 30, animation speed 0.4.
-- Beasts balance on an invisible `ball` part under the hips (why they hover); *Show balance balls* toggles its renderer.
+**Game-script hooks** (Unity project copies only; each reviewed hunk is stored in `tools/dev/hooks/*.diff` and `guard.py` fails on any other difference from `src/`):
+- `SceneManager.Awake` adds `DevRoot` to the persistent SceneManager object.
+- `Player`: `[NonSerialized] public bool devBrain` — `Update` skips the built-in mob AI (`FindClosestTarget`) while a dev brain drives the mob; `TauntInput` stops a mob taunting at a living target (`DevHooks.fixMobTaunt`).
+- `HealthAndStamina.TakeDamage` skips `score[player]--` past the P1–P4 scores, which threw for every mob death (`DevHooks.fixScoreIndex`).
+Any further hook needs the owner's approval.
+
+**Layout of `Assets/Dev/`:**
+- `Core/` — `DevRoot` (level lifecycle: `LevelStarting` → template capture → `BeastRegistry.Sweep` → `LevelReady`), `BeastRegistry` (every beast, Added/Removed/Replaced events, `SafeDestroy` which first releases grab joints on the victim and purges Targeting lists), `DevFields` (which serialized fields are level settings vs live state; a test fails on any unclassified field), `DevReflection`, `DevGround` (reference drop/footing probes), `DevHooks`.
+- `Spawning/` — `BeastFactory` (inactive template captured at level load, `Spawn`, `Rebuild` = rebuild a beast from the template with another body and swap it in; hex-packed spawn spots with a clear body volume), `BeastShape`.
+- `Generated/` — written by `tools/dev/gen_data.py`, never by hand: `BeastShapes.cs` (Street's 0.0.3 and 0.0.2 pink boss), `HardModeData.cs`, `HitboxMeshes.cs`.
+- `AI/` — `DevSpawner` (teams: mob gang, free-for-all, Teams A–D, allies of P1–P4), Smart AI: `AIDirector` (10 Hz: snapshot, `SpatialHash`, perception, `TargetAssigner`: 3 attackers per normal beast (5 per pink boss), the rest queued; `SlotPlanner` arcs ≤155°; sight lines budgeted to 16 per tick and blind to layers 8/9 (Sandbox cubes, Grind teeth)), `AIBrain` (roles Engage/Queue/Regroup/Encircled/Finish/Follow/Search/Patrol, dodges, lunges, carry-and-throw), `AISensors` (allocation-free rays that step past triggers; held to `DevGround`'s answers), `AIDifficulty`.
+- `Player/Morph.cs` (human → Pink Boss and back), `Camera/` (freecam: `FreeCamRestore` at execution order −1000 gives SceneCamera and Player.Update the game camera's pose, `FreeCamApply` at +1000 shows the free pose), `World/` (time scale, gravity, infinite health, balls, punch power, props), `UI/DevMenu.cs` (draws only; modules register sections).
+- `HardMode/` — 0.0.2 physics and combat: generated data per level/class (physics by body, settings by role, generic values where 0.0.2 had no counterpart), 0.0.2 hitboxes and ignore pairs, and 0.0.2's own `Movement`/`Jump`/`PunchAndGrab`/`CollisionEvent` (`Legacy002/`, decompiled; `guard.py` checks they differ only by class name) plus `HardPlayerPre/Post` (execution order −50/+50) for 0.0.2's Player.Update rules. Everything is restored exactly when switched off. Ground truth: `reconstruction/dev/hardmode/` (`code_diff.md`, `spec.json`/`spec.md`).
+- `Tests/` — `DevTestRunner` and the suites (smoke, core, menu, morph, freecam, hardmode, ai_unit, ai, diag); `Baseline/OldBrain.cs` is the additional branch's brain kept verbatim to measure the new AI against.
+- `Resources/DevMenu/` — the three loose prefabs (moved from `Assets/GameObject/`, GUIDs unchanged).
+
+**Commands (from `reconstruction/`):**
+```bash
+python -I tools/dev/guard.py                # src/ untouched, reviewed hooks only, metas, encodings, 0.0.2 ports, generated data
+bash tools/dev/compile_dev.sh               # compile the project's scripts with Unity's smcs (no Unity needed)
+python -I tools/dev/run_tests.py --build    # batch-build dev/out/player/GangBeastsDev.exe (Unity must be closed)
+python -I tools/dev/run_tests.py --suite smoke,core,menu,morph,freecam,hardmode,ai_unit,ai [--filter name] [--seeds 1-3]
+bash tools/dev/decompile_002.sh             # 0.0.2 scripts -> decompiled_002/ (needs ../gang_beasts_0_0_2_windows)
+python -I tools/dev/fingerprint.py 002 -o dev/out/fp/all002.json; python -I tools/dev/fingerprint.py 003 -o dev/out/fp/all003.json
+python -I tools/dev/fingerprint_diff.py dev/out/fp/all002.json dev/out/fp/all003.json -o dev/hardmode/spec.json -m dev/hardmode/spec.md
+python -I tools/dev/gen_data.py dev/out/fp/all002.json dev/out/fp/all003.json   # Generated/*.cs
+```
+New `.cs` files need a `.meta`: `python -I tools/dev/new_meta.py <file or folder> [--order N]` (never on a `.meta`).
+
+**How the tests run (non-obvious):** the player is built without Intro (its move to Menu waits on CameraFade, which advances in OnGUI, and OnGUI never runs headless) and runs `-batchmode -nographics`; each test seeds `Random` and sets `Time.captureFramerate = 100` (one 0.01 s physics step per frame); a test fails on any logged error except the known vanilla ones (`DevTestRunner.vanillaErrors`). PhysX replays a seed exactly only from the same history: reloading a level in-process can change the outcome, so physics outcomes are tested statistically. The menu's drawing itself cannot be tested headless.
+
+**Facts the tests established:** destroying a held beast without care re-anchors the holder's grab joint to the world (breaks at force 150); spawning with level geometry inside the body flings the beast at 55–70 m/s (Gondola); with 0.5 drag a plain fall tops out near 14 m/s, under the 15 m/s damage gate; contacts within 45° of up count as ground unless the beast is Falling, and 0.0.2 never falls, so its landings never hurt.
 
 ## How the pipeline fits together
 
@@ -75,5 +95,7 @@ How it works (non-obvious):
 
 - Write files as bytes / `newline='\n'` from Python on Windows — text-mode writes produce CRLF and break the regex tools. Non-ASCII sources need a UTF-8 BOM (`tools/add_bom.py`) for Mono 2.x.
 - Bash heredocs containing apostrophes or tab-only blank lines have broken edits; prefer the Write/Edit tools or `tools/rep` with exact text.
+- Unity 4.3.2 batch mode: builds need the editor closed and run with `-nographics` (with the display asleep the editor cannot create its Direct3D window); a new script and an edit that uses it can fail the first compile (it compiles before importing) — `run_tests.py` retries once. A `X.meta.meta` file crashed the editor's auto-refresh.
+- `Physics.raycastsHitTriggers` does not exist for 3D physics in Unity 4.3.2 (only Physics2D has it), and this project's raycasts hit triggers.
 - Unity 4.3's Project Wizard crashes on Windows 10/11 when switching projects (`LicenseInfo::~LicenseInfo`); always open with `-projectPath`. Batch mode requires an activated license. Logs: `%LOCALAPPDATA%\Unity\Editor\Editor.log`.
 - `level10` embeds a MonoScript whose assembly name is a full display name; AssetRipper only reads it from a scratch copy patched by `tools/patch_monoscript_assembly.py`.

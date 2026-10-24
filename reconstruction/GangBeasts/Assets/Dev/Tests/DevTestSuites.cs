@@ -17,6 +17,8 @@ public static class DevTestSuites
 			all.Add(MorphTests.Suite());
 			all.Add(FreeCamTests.Suite());
 			all.Add(HardModeTests.Suite());
+			all.Add(AIUnitTests.Suite());
+			all.Add(AIScenarioTests.Suite());
 		}
 		foreach (DevTestSuite suite in all)
 		{

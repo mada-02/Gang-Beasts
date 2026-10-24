@@ -9,7 +9,76 @@ public static class DiagTests
 	{
 		return new DevTestSuite("diag")
 			.Add("gondola_spawn_fling", GondolaSpawnFling)
-			.Add("vanilla_errors", VanillaErrors);
+			.Add("vanilla_errors", VanillaErrors)
+			.Add("sensor_disagreements", SensorDisagreements)
+			.Add("ray_from_inside", RayFromInside);
+	}
+
+	// Does a raycast that starts inside a collider (trigger or not, box or sphere) hit it? Decides how the
+	// AI's rays step past triggers.
+	private static IEnumerator RayFromInside(DevTestContext t)
+	{
+		yield return t.LoadLevel("Street");
+		foreach (bool trigger in new bool[] { true, false })
+		{
+			foreach (PrimitiveType shape in new PrimitiveType[] { PrimitiveType.Cube, PrimitiveType.Sphere })
+			{
+				GameObject go = GameObject.CreatePrimitive(shape);
+				go.transform.position = new Vector3(0f, 1000f, 0f);
+				go.transform.localScale = Vector3.one * 10f;
+				go.collider.isTrigger = trigger;
+				yield return new WaitForFixedUpdate();
+				RaycastHit hit;
+				bool any = Physics.Raycast(go.transform.position, Vector3.down, out hit, 20f);
+				string name = (trigger ? "trigger_" : "solid_") + shape;
+				t.Info(name + "_from_inside", any ? "hit " + hit.collider.name + " at " + hit.distance : "no hit");
+				any = Physics.Raycast(go.transform.position + Vector3.up * 8f, Vector3.down, out hit, 20f);
+				t.Info(name + "_from_outside", any ? "hit at " + hit.distance : "no hit");
+				Object.Destroy(go);
+				yield return null;
+			}
+		}
+	}
+
+	// Where AISensors.Drop and DevGround.Drop disagree: the reference's hits along the ray.
+	private static IEnumerator SensorDisagreements(DevTestContext t)
+	{
+		System.Random r = new System.Random(t.seed);
+		foreach (string level in new string[] { "Street", "Grind", "Sandbox" })
+		{
+			yield return t.LoadLevel(level);
+			yield return t.Steps(5);
+			AISensors.LevelLoaded();
+			Beast p1 = BeastRegistry.Human(0);
+			Vector3 c = p1 != null ? p1.Part("ball").position : Vector3.zero;
+			int shown = 0;
+			int bad = 0;
+			for (int i = 0; i < 2000; i++)
+			{
+				Vector3 p = c + new Vector3((float)(r.NextDouble() * 60 - 30), (float)(r.NextDouble() * 3 - 1), (float)(r.NextDouble() * 60 - 30));
+				bool mine = AISensors.Drop(p, 2f);
+				bool reference = DevGround.Drop(p, 2f);
+				if (mine == reference)
+				{
+					continue;
+				}
+				bad++;
+				if (shown++ >= 6)
+				{
+					continue;
+				}
+				string hits = "";
+				RaycastHit[] all = Physics.RaycastAll(p + Vector3.up, Vector3.down, 3f);
+				System.Array.Sort(all, (a, b) => a.distance.CompareTo(b.distance));
+				foreach (RaycastHit h in all)
+				{
+					hits += " | " + h.collider.name + " (" + h.collider.GetType().Name + ", layer " + h.collider.gameObject.layer + (h.collider.isTrigger ? ", trigger" : "")
+						+ (h.collider.GetComponent<KillZone>() != null ? ", KILLZONE" : "") + (h.rigidbody != null ? ", rb" : "") + ") at " + h.distance.ToString("0.00");
+				}
+				t.Info(level + "_" + shown, DevTestUtil.V(p) + " mine " + mine + " ref " + reference + hits);
+			}
+			t.Metric(level + "_disagreements", bad);
+		}
 	}
 
 	// What the game itself logs as errors when each level loads and runs for 5 s untouched: the baseline

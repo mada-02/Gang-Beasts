@@ -39,6 +39,7 @@ public class DevRoot : MonoBehaviour
 		gameObject.AddComponent<FreeCamApply>();
 		gameObject.AddComponent<HardPlayerPre>();
 		gameObject.AddComponent<HardPlayerPost>();
+		gameObject.AddComponent<AIDirector>();
 		if (DevTestRunner.Requested())
 		{
 			gameObject.AddComponent<DevTestRunner>();

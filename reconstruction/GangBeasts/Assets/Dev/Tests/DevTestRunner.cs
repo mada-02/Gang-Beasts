@@ -28,7 +28,9 @@ public class DevTestRunner : MonoBehaviour
 	// - SceneManager.ShowScore: CreateScoreboard schedules it 6 s ahead, and when the level changes to
 	//   one that builds no scoreboard (Menu) before then, it touches the destroyed GUITexts. Players only
 	//   meet it by leaving a level within 6 s; tests change levels all the time.
-	public static readonly string[] vanillaErrors = { "pb_Object.GenerateSubmeshes", "SceneManager.ShowScore" };
+	// - Player.Start with one player: SceneManager builds no scoreboard for one player, so guiTextColor is
+	//   empty and Player.Start's guiTextColor[player] throws (a 1-player game does it too).
+	public static readonly string[] vanillaErrors = { "pb_Object.GenerateSubmeshes", "SceneManager.ShowScore", "Player.Start ()" };
 
 	private StreamWriter output;
 
